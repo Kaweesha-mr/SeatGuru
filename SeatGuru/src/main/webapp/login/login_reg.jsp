@@ -47,7 +47,7 @@
           </a>
         </div>
       </form>
-      <form action="Register" class="sign-up-form">
+      <form action="/Register" class="sign-up-form">
         <h2 class="title">Sign up</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>

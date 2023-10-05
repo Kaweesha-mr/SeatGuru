@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet ("/register")
+@WebServlet ("/Register?") // This annotation maps this Java Servlet Class to the specified URL pattern
 public class Register extends HttpServlet {
 
     @Override
@@ -19,6 +19,21 @@ public class Register extends HttpServlet {
         String Email = req.getParameter("Email");
         String Password = req.getParameter("Password");
         Password = passwordHash.doHashing(Password);
+
+        User user = new User(NIC,FName,LName,Email,Password);
+        ConnectDB connectDB = new ConnectDB();
+        try {
+            int result = connectDB.insert(user);
+            if (result == 1){
+                resp.sendRedirect("login.jsp");
+            }else {
+                resp.sendRedirect("register.jsp");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
 
 
