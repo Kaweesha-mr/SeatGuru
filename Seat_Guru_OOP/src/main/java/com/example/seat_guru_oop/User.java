@@ -1,4 +1,4 @@
-package com.example.seatguru;
+package com.example.seat_guru_oop;
 
 public class User {
 
@@ -11,6 +11,9 @@ public class User {
         this.LName = LName;
         this.Email = Email;
         this.Password = Password;
+
+        System.out.println("Class executed");
+
     }
     public String getNIC(){
         return NIC;

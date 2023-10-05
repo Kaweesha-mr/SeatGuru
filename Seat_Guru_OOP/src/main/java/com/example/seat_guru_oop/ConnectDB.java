@@ -1,4 +1,4 @@
-package com.example.seatguru;
+package com.example.seat_guru_oop;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,37 +6,23 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConnectDB {
+    private String dburl = "jdbc:mysql://localhost:3306/bus_ticket_reservation_system";
+    private String dbuname = "root";
+    private String dbpassword = "ksmr123";
 
-    public void loadDriver(String driver){
+    public Connection getConnection() {
+        Connection con = null;
         try {
-            Class.forName(driver);
-        } catch (ClassNotFoundException e) {
+            con = DriverManager.getConnection(dburl, dbuname, dbpassword);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-    private static Connection connection;
-
-    public static Connection getConnection() throws SQLException {
-
-        try {
-
-            String username = "root";
-            String password = "ksmr123";
-            String url = "jdbc:mysql://localhost:3306/bus_ticket_reservation_system";
-            connection = DriverManager.getConnection(url, username, password);
-            System.out.println("Connected");
-
-        } catch (Exception e) {
-
-            System.out.println("Not Connected");
-            e.printStackTrace();
-        }
-        return connection;
+        return con;
     }
 
-    public int insert (User Usr) throws SQLException {
-        String driver = "com.mysql.cj.jdbc.Driver";
-        loadDriver(driver);
+    public void insert (User Usr) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
 
         String sql  = "insert into bus_ticket_reservation_system.user (NIC, FName, LName, Email,Password) values (?,?,?,?,?);";
@@ -51,17 +37,19 @@ public class ConnectDB {
             ps.setString(5, Usr.getPassword());
             int rs = ps.executeUpdate();
 
-            if (rs == 0) {
-                isSuccess = 0;
-            } else
-                isSuccess = 1;
+            if (rs == 1){
+                System.out.println("Success");
+            }else {
+                System.out.println("unSuccess");
+            }
 
 
-            return isSuccess;
 
         } catch (SQLException e) {
-            System.out.println("Insertion failed");
-            throw new RuntimeException(e);
+
+            System.out.println(e);
+
+
         }
 
     }

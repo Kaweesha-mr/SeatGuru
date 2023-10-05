@@ -1,4 +1,4 @@
-package com.example.seatguru;
+package com.example.seat_guru_oop;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

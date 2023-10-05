@@ -13,7 +13,7 @@
           crossorigin="anonymous"
   ></script>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login/style.css">
     <title>Title</title>
 </head>
 <body>
@@ -91,7 +91,7 @@
           Sign up
         </button>
       </div>
-      <img src="img/log.svg" class="image" alt="" />
+      <img src="login/img/log.svg" class="image" alt="" />
     </div>
     <div class="panel right-panel">
       <div class="content">
@@ -104,14 +104,14 @@
           Sign in
         </button>
       </div>
-      <img src="img/register.svg" class="image" alt="" />
+      <img src="login/img/register.svg" class="image" alt="" />
 
     </div>
   </div>
 </div>
 
 <%--connect script.js using jstl--%>
-<script src="app.js"></script>
+<script src="login/app.js"></script>
 
 </body>
 </html>
