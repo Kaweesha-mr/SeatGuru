@@ -13,5 +13,19 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
+        int Nic = Integer.parseInt(req.getParameter("id"));
+        String Password = req.getParameter("password");
+        Password = passwordHash.doHashing(Password);
+
+        ConnectDB connectDB = new ConnectDB();
+        try {
+            connectDB.login(Nic,Password);
+
+        } catch (ClassNotFoundException e) {
+
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

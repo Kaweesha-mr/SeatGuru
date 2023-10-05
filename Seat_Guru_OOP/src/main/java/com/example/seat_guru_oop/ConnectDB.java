@@ -21,7 +21,7 @@ public class ConnectDB {
         return con;
     }
 
-    public void insert (User Usr) throws SQLException, ClassNotFoundException {
+    public void register (User Usr) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
 
@@ -42,9 +42,6 @@ public class ConnectDB {
             }else {
                 System.out.println("unSuccess");
             }
-
-
-
         } catch (SQLException e) {
 
             System.out.println(e);
@@ -55,4 +52,17 @@ public class ConnectDB {
     }
 
 
+
+    public void login(int nic, String password) throws ClassNotFoundException {
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = getConnection();
+
+        String sql = "Select NIC,Password from user where = NIC="+nic;
+
+
+        /*store them*/
+
+
+    }
 }

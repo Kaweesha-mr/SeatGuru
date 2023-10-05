@@ -25,7 +25,7 @@ public class Register extends HttpServlet {
         ConnectDB connectDB = new ConnectDB();
 
         try {
-         connectDB.insert(user);
+         connectDB.register(user);
          resp.sendRedirect("login.jsp");
         } catch (SQLException | ClassNotFoundException e) {
 
