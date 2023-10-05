@@ -9,3 +9,12 @@ sign_up_btn.addEventListener("click", () => {
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
+
+
+let password1 = document.getElementById("passInp_1");
+let password2 = document.getElementById("passInp_2");
+let password1Container = document.getElementById("Checkpass1");
+let password2Container = document.getElementById("Checkpass2");
+
+
+

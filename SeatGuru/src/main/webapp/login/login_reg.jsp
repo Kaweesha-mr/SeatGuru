@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
-
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script
+          src="https://kit.fontawesome.com/64d58efce2.js"
+          crossorigin="anonymous"
+  ></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./style.css">
     <title>Title</title>
@@ -46,31 +47,31 @@
           </a>
         </div>
       </form>
-      <form action="#" class="sign-up-form">
+      <form action="Register" class="sign-up-form">
         <h2 class="title">Sign up</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Username" />
+          <input type="text" placeholder="NIC" />
         </div>
         <div class="input-field">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Phone Number" />
+          <input type="text" placeholder="First Name" />
         </div>
         <div class="input-field">
           <i class="fas fa-envelope"></i>
-          <input type="email" placeholder="Email" />
+          <input type="email" placeholder="Last Name" />
         </div>
         <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Email" />
         </div>
-        <div class="input-field">
+        <div class="input-field" id="Checkpass1">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Password" id="passInp_1"/>
         </div>
-        <div class="input-field">
+        <div class="input-field" id="Checkpass2">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Re-Enter Password" />
         </div>
         <input type="submit" class="btn" value="Sign up" />
 
