@@ -19,6 +19,7 @@ public class Register extends HttpServlet {
         String LName = req.getParameter("LName");
         String Email = req.getParameter("Email");
         String Password = req.getParameter("Password");
+        Password = passwordHash.doHashing(Password);
 
         User user = new User(NIC,FName,LName,Email,Password);
         ConnectDB connectDB = new ConnectDB();
