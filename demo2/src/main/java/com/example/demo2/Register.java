@@ -10,7 +10,6 @@ import java.io.IOException;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String NIC = req.getParameter("NIC");
@@ -18,26 +17,18 @@ public class Register extends HttpServlet {
         String LName = req.getParameter("LName");
         String Email = req.getParameter("Email");
         String Password = req.getParameter("Password");
-        Password = passwordHash.doHashing(Password);
 
         User user = new User(NIC,FName,LName,Email,Password);
         ConnectDB connectDB = new ConnectDB();
         try {
             int result = connectDB.insert(user);
             if (result == 1){
-                resp.sendRedirect("login.jsp");
+                resp.sendRedirect("facebook.com");
             }else {
-                resp.sendRedirect("register.jsp");
+                resp.sendRedirect("facebook.com");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
-
-
-
     }
 }

@@ -10,7 +10,6 @@ import java.io.IOException;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String NIC = req.getParameter("NIC");
@@ -18,7 +17,6 @@ public class Register extends HttpServlet {
         String LName = req.getParameter("LName");
         String Email = req.getParameter("Email");
         String Password = req.getParameter("Password");
-        Password = passwordHash.doHashing(Password);
 
         User user = new User(NIC,FName,LName,Email,Password);
         ConnectDB connectDB = new ConnectDB();
@@ -32,12 +30,5 @@ public class Register extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
-
-
-
     }
 }

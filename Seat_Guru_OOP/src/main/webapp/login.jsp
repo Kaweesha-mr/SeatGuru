@@ -13,7 +13,7 @@
           crossorigin="anonymous"
   ></script>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="login/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Title</title>
 </head>
 <body>
@@ -47,7 +47,7 @@
           </a>
         </div>
       </form>
-      <form action="Register" class="sign-up-form" method="post">
+      <form action="hello-servlet" class="sign-up-form" method="post">
         <h2 class="title">Sign up</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
@@ -91,7 +91,7 @@
           Sign up
         </button>
       </div>
-      <img src="login/img/log.svg" class="image" alt="" />
+      <img src="img/log.svg" class="image" alt="" />
     </div>
     <div class="panel right-panel">
       <div class="content">
@@ -104,14 +104,14 @@
           Sign in
         </button>
       </div>
-      <img src="login/img/register.svg" class="image" alt="" />
+      <img src="img/register.svg" class="image" alt="" />
 
     </div>
   </div>
 </div>
 
 <%--connect script.js using jstl--%>
-<script src="login/app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>

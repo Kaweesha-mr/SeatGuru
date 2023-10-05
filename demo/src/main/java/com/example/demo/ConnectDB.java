@@ -7,11 +7,6 @@ import java.sql.SQLException;
 
 public class ConnectDB {
 
-    private static String url = "jdbc:mysql://localhost:3306/bus_ticket_reservation_system";
-    private static String username = "root";
-    private static String password = "ksmr123";
-    private static String driver = "com.mysql.cj.jdbc.Driver";
-
     public void loadDriver(String driver){
         try {
             Class.forName(driver);
@@ -25,8 +20,12 @@ public class ConnectDB {
 
         try {
 
+            String username = "root";
+            String password = "ksmr123";
+            String url = "jdbc:mysql://localhost:3306/bus_ticket_reservation_system";
             connection = DriverManager.getConnection(url, username, password);
             System.out.println("Connected");
+
         } catch (Exception e) {
 
             System.out.println("Not Connected");
@@ -36,12 +35,13 @@ public class ConnectDB {
     }
 
     public int insert (User Usr) throws SQLException {
+        String driver = "com.mysql.cj.jdbc.Driver";
         loadDriver(driver);
         Connection connection = getConnection();
 
-        String sql  = "insert into user values(?,?,?,?,?)";
-        int isSuccess = 0;
+        String sql  = "insert into bus_ticket_reservation_system.user (NIC, FName, LName, Email,Password) values (?,?,?,?,?);";
 
+        int isSuccess = 0;
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, Usr.getNIC());
@@ -58,8 +58,6 @@ public class ConnectDB {
 
 
             return isSuccess;
-
-
 
         } catch (SQLException e) {
             System.out.println("Insertion failed");
