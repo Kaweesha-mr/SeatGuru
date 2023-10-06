@@ -161,7 +161,7 @@
           </button>
 
 
-          <button class="btn btn-icon btn-3 btn-danger delete" type="button" id="delete">
+          <button class="btn btn-icon btn-3 btn-danger delete" type="button" id="delete" >
                             <span class="btn-inner--icon">
                                 <!-- add remove icon -->
                                 <ion-icon name="trash-outline"></ion-icon>
@@ -256,7 +256,7 @@
         </div>
         <div class="buttons">
           <button class="no" id="No">No</button>
-          <button class="yes" id="yes">Yes</button>
+          <button class="yes" id="yes" ><a href="delete-servlet">Yes</a></button>
         </div>
       </div>
     </div>

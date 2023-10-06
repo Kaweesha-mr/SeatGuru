@@ -119,4 +119,27 @@ public class ConnectDB {
             System.out.println(e);
 }
     }
+
+    public void deleteUser(int username) throws ClassNotFoundException, SQLException {
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = getConnection();
+
+        try {
+            PreparedStatement ps = connection.prepareStatement("DELETE FROM user WHERE NIC = ?;");
+            ps.setInt(1, username);
+
+            int rs = ps.executeUpdate();
+
+            if (rs == 1){
+                System.out.println("Success");
+            }else {
+                System.out.println("unSuccess");
+            }
+}
+        catch (SQLException e) {
+
+            System.out.println(e);
+}
+    }
 }
