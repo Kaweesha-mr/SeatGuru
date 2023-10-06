@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
+
+
 public class Register extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,6 +29,7 @@ public class Register extends HttpServlet {
         try {
          connectDB.register(user);
          resp.sendRedirect("login.jsp");
+
         } catch (SQLException | ClassNotFoundException e) {
 
             throw new RuntimeException(e);

@@ -20,7 +20,7 @@
 <div class="container">
   <div class="forms-container">
     <div class="signin-signup">
-      <form action="#" class="sign-in-form">
+      <form action="login-servlet" class="sign-in-form" method="post">
         <h2 class="title">Sign in</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
@@ -59,11 +59,11 @@
         </div>
         <div class="input-field">
           <i class="fas fa-envelope"></i>
-          <input type="email" placeholder="Last Name" name="LName" />
+          <input type="text" placeholder="Last Name" name="LName" />
         </div>
         <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Email" name="Email"/>
+          <input type="Email" placeholder="Email" name="Email"/>
         </div>
         <div class="input-field" id="Checkpass1">
           <i class="fas fa-lock"></i>

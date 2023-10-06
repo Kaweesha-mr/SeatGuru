@@ -1,9 +1,8 @@
 package com.example.seat_guru_oop;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import jakarta.servlet.RequestDispatcher;
+
+import java.sql.*;
 
 public class ConnectDB {
     private String dburl = "jdbc:mysql://localhost:3306/bus_ticket_reservation_system";
@@ -53,16 +52,24 @@ public class ConnectDB {
 
 
 
-    public void login(int nic, String password) throws ClassNotFoundException {
+    public int login(int nic, String password) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
 
-        String sql = "Select NIC,Password from user where = NIC="+nic;
+        PreparedStatement ps = connection.prepareStatement("select * from bus_ticket_reservation_system.user where NIC = ? and Password = ?");
+        ps.setInt(1, nic);
+        ps.setString(2, password);
 
+        ResultSet rs = ps.executeQuery();
 
-        /*store them*/
+        if(rs.next()){
+            return 1;
 
+        }else{
+
+            return 0;
+        }
 
     }
 }
