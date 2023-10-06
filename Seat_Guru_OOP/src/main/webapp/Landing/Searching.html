@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garment And Management System</title>
+
+  <!-- !external resouces that are got to style the landing page and login,register popup -->
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
+
+  <!-- boot starp include -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+
+
+  <!-- !styles for main landing page -->
+  <link rel="stylesheet" href="./css/Slider_style.css">
+  <link rel="stylesheet" href="./css/Navigation_bar.css">
+  <link rel="stylesheet" href="./css/Cards.css">
+  <link rel="stylesheet" href="./css/counting.css">
+  <link rel="stylesheet" href="./css/feedback.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/form.css">
+  <link rel="stylesheet" href="./css/Search.css">
+  <link rel="stylesheet" href="./css/table.css">
+
+  <!-- font-awesome libarary for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .checked {
+      color: orange;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <!-- !navigation Bar -->
+  <header>
+    <div class="nav-bar">
+      <a href="" class="logo">
+        <ion-icon name="bus-outline" class="logo"></ion-icon>
+        SeatGuru</a>
+      <div class="navigation">
+        <div class="nav-items">
+          <a href="../Landing/Landing.html"> Home</a>
+          <a href="./ContactUs.html"> Contact Us</a>
+          <a href="./about us/aboutUs.html"> About Us</a>
+          <!-- make this button blue ane make it red when hover -->
+          <a href="../Login Register Page/index.html"><button type="button"
+              class="btn btn-dark btnlogin">Login</button></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- !navigation Bar ended-->
+
+  <main>
+    <div class="form_container">
+      <form class="search-form needs-validation" autocomplete="off" action="dashboard" method="POST" novalidate="">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="fromstation">From</label>
+            <select id="fromstation" name="fromSt" class="form-control select2-hidden-accessible" required=""
+              data-select2-id="fromstation" tabindex="-1" aria-hidden="true">
+              <option selected="" value="" data-select2-id="2">Choose Station</option>
+
+              <option value="51">Ahangama</option>
+
+              <option value="43">Aluthgama</option>
+
+              <option value="45">Ambalangoda</option>
+
+              <option value="82">Ambalangoda</option>
+
+              <option value="24">Ambewela</option>
+
+              <option value="8">Anuradhapura</option>
+
+              <option value="12">Anuradhapura Town</option>
+
+              <option value="97">Avissawella</option>
+
+              <option value="16">Badulla</option>
+
+              <option value="26">Bandarawela</option>
+
+              <option value="30">Batticaloa</option>
+
+              <option value="89">Beliatta</option>
+
+              <option value="44">Bentota</option>
+
+              <option value="42">Beruwala</option>
+
+              <option value="68">China bay</option>
+
+              <option value="75">Chunnakam</option>
+
+              <option value="1">Colombo Fort</option>
+
+              <option value="92">Demodara-Ella</option>
+
+              <option value="25">Diyathalawa</option>
+
+              <option value="57">Ella</option>
+
+              <option value="36">Eraur</option>
+
+              <option value="14">Galgamuwa</option>
+
+              <option value="47">Galle</option>
+
+              <option value="28">Galoya</option>
+
+              <option value="2">Gampaha</option>
+
+              <option value="21">Gampola</option>
+
+              <option value="49">Habaraduwa</option>
+
+              <option value="90">Habarana</option>
+
+              <option value="58">Hali Ela</option>
+
+              <option value="56">Haputhale</option>
+
+              <option value="23">Hatton</option>
+
+              <option value="46">Hikkaduwa</option>
+
+              <option value="33">Hingurakgoda</option>
+
+              <option value="72">Jaffna</option>
+
+              <option value="91">Kakirawa</option>
+
+              <option value="41">Kalutara South</option>
+
+              <option value="54">Kamburugamuwa</option>
+
+              <option value="4">Kandy</option>
+
+              <option value="73">Kankesanthurai</option>
+
+              <option value="31">Kanthale</option>
+
+              <option value="59">Kilinochchi</option>
+
+              <option value="71">Kodikamam</option>
+
+              <option value="50">Koggala</option>
+
+              <option value="6">Kurunegala</option>
+
+              <option value="77">Madhupara</option>
+
+              <option value="7">Mahawa</option>
+
+              <option value="88">Makumbura</option>
+
+              <option value="84">Mannar</option>
+
+              <option value="13">Maradhana</option>
+
+              <option value="81">Matale</option>
+
+              <option value="55">Matara</option>
+
+              <option value="9">Medawachchiya</option>
+
+              <option value="94">Mirigama</option>
+
+              <option value="53">Mirissa</option>
+
+              <option value="38">Moratuwa</option>
+
+              <option value="70">Mount Lavinia</option>
+
+              <option value="95">NAGOLLAGAMA</option>
+
+              <option value="15">Nanu Oya</option>
+
+              <option value="64">Nawalapitiya</option>
+
+              <option value="22">Nawalapitya</option>
+
+              <option value="100">Nugegoda</option>
+
+              <option value="17">Omantha</option>
+
+              <option value="66">Pallai</option>
+
+              <option value="39">Panadura</option>
+
+              <option value="3">Peradeniya</option>
+
+              <option value="5">Polgahawela</option>
+
+              <option value="29">Polonnaruwa</option>
+
+              <option value="99">Puwakpitiya</option>
+
+              <option value="18">Ragama</option>
+
+              <option value="20">Rambukkana</option>
+
+              <option value="37">Rathmalana</option>
+
+              <option value="96">Return Colombo </option>
+
+              <option value="98">Return Waga</option>
+
+              <option value="78">Talaimannar Pier</option>
+
+              <option value="67">Thambalagamuwa</option>
+
+              <option value="76">Thambuththegama</option>
+
+              <option value="11">Thandikulam</option>
+
+              <option value="69">Trincomalee</option>
+
+              <option value="48">Unawatuna</option>
+
+              <option value="35">Valachchena</option>
+
+              <option value="10">Vauniya</option>
+
+              <option value="19">Veyangoda</option>
+
+              <option value="83">Veyangoda </option>
+
+              <option value="40">Waduwwa</option>
+
+              <option value="52">Weligama</option>
+
+              <option value="34">Welikanda</option>
+
+              <option value="93">Wellawa</option>
+
+              <option value="65">Wellawatte</option>
+
+            </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1"
+              style="width: 229.328px;"><span class="selection"><span
+                  class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true"
+                  aria-expanded="false" tabindex="0" aria-disabled="false"
+                  aria-labelledby="select2-fromstation-container"><span class="select2-selection__rendered"
+                    id="select2-fromstation-container" role="textbox" aria-readonly="true"
+                    title="Choose Station"></span><span class="select2-selection__arrow" role="presentation"><b
+                      role="presentation"></b></span></span></span><span class="dropdown-wrapper"
+                aria-hidden="true"></span></span>
+            <div class="invalid-feedback">
+              Please select from station
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="tostation">To</label>
+            <select id="tostation" name="toSt" class="form-control select2-hidden-accessible" required=""
+              data-select2-id="tostation" tabindex="-1" aria-hidden="true">
+              <option selected="" value="" data-select2-id="4">Choose Station</option>
+
+              <option value="51">Ahangama</option>
+
+              <option value="43">Aluthgama</option>
+
+              <option value="45">Ambalangoda</option>
+
+              <option value="82">Ambalangoda</option>
+
+              <option value="24">Ambewela</option>
+
+              <option value="8">Anuradhapura</option>
+
+              <option value="12">Anuradhapura Town</option>
+
+              <option value="97">Avissawella</option>
+
+              <option value="16">Badulla</option>
+
+              <option value="26">Bandarawela</option>
+
+              <option value="30">Batticaloa</option>
+
+              <option value="89">Beliatta</option>
+
+              <option value="44">Bentota</option>
+
+              <option value="42">Beruwala</option>
+
+              <option value="68">China bay</option>
+
+              <option value="75">Chunnakam</option>
+
+              <option value="1">Colombo Fort</option>
+
+              <option value="92">Demodara-Ella</option>
+
+              <option value="25">Diyathalawa</option>
+
+              <option value="57">Ella</option>
+
+              <option value="36">Eraur</option>
+
+              <option value="14">Galgamuwa</option>
+
+              <option value="47">Galle</option>
+
+              <option value="28">Galoya</option>
+
+              <option value="2">Gampaha</option>
+
+              <option value="21">Gampola</option>
+
+              <option value="49">Habaraduwa</option>
+
+              <option value="90">Habarana</option>
+
+              <option value="58">Hali Ela</option>
+
+              <option value="56">Haputhale</option>
+
+              <option value="23">Hatton</option>
+
+              <option value="46">Hikkaduwa</option>
+
+              <option value="33">Hingurakgoda</option>
+
+              <option value="72">Jaffna</option>
+
+              <option value="91">Kakirawa</option>
+
+              <option value="41">Kalutara South</option>
+
+              <option value="54">Kamburugamuwa</option>
+
+              <option value="4">Kandy</option>
+
+              <option value="73">Kankesanthurai</option>
+
+              <option value="31">Kanthale</option>
+
+              <option value="59">Kilinochchi</option>
+
+              <option value="71">Kodikamam</option>
+
+              <option value="50">Koggala</option>
+
+              <option value="6">Kurunegala</option>
+
+              <option value="77">Madhupara</option>
+
+              <option value="7">Mahawa</option>
+
+              <option value="88">Makumbura</option>
+
+              <option value="84">Mannar</option>
+
+              <option value="13">Maradhana</option>
+
+              <option value="81">Matale</option>
+
+              <option value="55">Matara</option>
+
+              <option value="9">Medawachchiya</option>
+
+              <option value="94">Mirigama</option>
+
+              <option value="53">Mirissa</option>
+
+              <option value="38">Moratuwa</option>
+
+              <option value="70">Mount Lavinia</option>
+
+              <option value="95">NAGOLLAGAMA</option>
+
+              <option value="15">Nanu Oya</option>
+
+              <option value="64">Nawalapitiya</option>
+
+              <option value="22">Nawalapitya</option>
+
+              <option value="100">Nugegoda</option>
+
+              <option value="17">Omantha</option>
+
+              <option value="66">Pallai</option>
+
+              <option value="39">Panadura</option>
+
+              <option value="3">Peradeniya</option>
+
+              <option value="5">Polgahawela</option>
+
+              <option value="29">Polonnaruwa</option>
+
+              <option value="99">Puwakpitiya</option>
+
+              <option value="18">Ragama</option>
+
+              <option value="20">Rambukkana</option>
+
+              <option value="37">Rathmalana</option>
+
+              <option value="96">Return Colombo </option>
+
+              <option value="98">Return Waga</option>
+
+              <option value="78">Talaimannar Pier</option>
+
+              <option value="67">Thambalagamuwa</option>
+
+              <option value="76">Thambuththegama</option>
+
+              <option value="11">Thandikulam</option>
+
+              <option value="69">Trincomalee</option>
+
+              <option value="48">Unawatuna</option>
+
+              <option value="35">Valachchena</option>
+
+              <option value="10">Vauniya</option>
+
+              <option value="19">Veyangoda</option>
+
+              <option value="83">Veyangoda </option>
+
+              <option value="40">Waduwwa</option>
+
+              <option value="52">Weligama</option>
+
+              <option value="34">Welikanda</option>
+
+              <option value="93">Wellawa</option>
+
+              <option value="65">Wellawatte</option>
+
+            </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="3"
+              style="width: 229.328px;"><span class="selection"><span
+                  class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true"
+                  aria-expanded="false" tabindex="0" aria-disabled="false"
+                  aria-labelledby="select2-tostation-container"><span class="select2-selection__rendered"
+                    id="select2-tostation-container" role="textbox" aria-readonly="true"
+                    title="Choose Station"></span><span class="select2-selection__arrow" role="presentation"><b
+                      role="presentation"></b></span></span></span><span class="dropdown-wrapper"
+                aria-hidden="true"></span></span>
+
+            <div class="invalid-feedback">
+              Please select to station
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="dateOne">Date</label>
+            <div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
+              <input
+                type="date" name="depDate" class="form-control "</i></button></span>
+          </div>
+        </div>
+        <div class="form-row margin-bottom-search">
+          <div class="form-group col-md-4">
+            <input type="number" min="1" max="5" name="noOfUsers" class="form-control" id="passengers"
+              placeholder="No of Passengers" required="">
+            <div class="invalid-feedback">
+              No of passengers between 1-5
+            </div>
+          </div>
+          <div class="form-group col-lg-4 col-md-6 margin-top-search">
+            <label>Return</label>
+            <div class="form-check">
+              <input type="checkbox" id="toggle" class="checkbox" />
+              <label for="toggle" class="switch"></label>
+            </div>
+          </div>
+          <div class="form-group col-lg-4" id="pickReturn">
+            <!-- <label for="dateOne">Return Date</label> -->
+            <div>
+              <input
+                type="date" name="retDate" class="form-control" id="dateRet" placeholder="Pick Return Date"
+                data-type="datepicker" data-guid="96d56089-4aeb-2b85-66b5-c6f3e4b76bd6" data-datepicker="true"
+                role="input">
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary reset-btn" onclick="resetSearch()" style="margin:5px;">
+          Reset</button>
+        <button type="submit" class="btn btn-primary search-btn" style="margin:5px;">Search</button>
+
+
+      </form>
+    </div>
+
+  </main>
+
+  <section class="py-5" id="gallery">
+    <div class="container">
+        <h1 class="display-4">Gallery</h1>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="card" style="margin-bottom: 30px;" onclick="lightbox(0)">
+                    <img src="gallery/gallery-1.jpg" class="card-img-top" alt="image 1">
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="card" style="margin-bottom: 30px;" onclick="lightbox(1)">
+                    <img src="gallery/gallery-2.jpg" class="card-img-top" alt="image 1" style="cursor: pointer;">
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="card" style="margin-bottom: 30px;" onclick="lightbox(2)">
+                    <img src="gallery/gallery-3.jpg" class="card-img-top" alt="image 1">
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="card" style="margin-bottom: 30px;" onclick="lightbox(3)">
+                    <img src="gallery/gallery-4.jpg" class="card-img-top" alt="image 1">
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="card" style="margin-bottom: 30px;" onclick="lightbox(4)">
+                    <img src="gallery/gallery-5.jpg" class="card-img-top" alt="image 1">
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="card" style="margin-bottom: 30px;" onclick="lightbox(5)">
+                    <img src="gallery/gallery-6.jpg" class="card-img-top" alt="image 1">
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="py-5" id="history">
+      <div class="container">
+          <h1 class="display-4">History</h1>
+          <p class="lead" style="text-align: justify; text-justify: inter-word">
+              Rail was introduced in Sri Lanka in 1864 to transport coffee from plantations in the hill country district
+              of Kandy to the port city of Colombo
+              on its way to Europe and the world market. The coffee blight of 1871 destroyed many a fine plantation and
+              tea replaced coffee.
+              With the development of tea plantations in the 1880s, the joint-stock companies swallowed up the former
+              individual proprietorship of the coffee era.
+              Under corporate ownership and management control by companies, the process of production of tea became more
+              sophisticated and needed more and more
+              railways built to the Kandyan highlands. To send tea to Colombo and to transport labour, machinery, manure,
+              rice, and foodstuff, etc to Kandy,
+              another 100 miles of railways were constructed in the tea planting districts to serve the expanding tea
+              domain.<br><br>
+  
+              To serve the coconut plantations flourishing in the west, southwest and northwest coastal areas of the
+              country, and the wet inland
+              rubber plantations below the tea belt, railway lines were built in the wake of these agricultural
+              developments.
+              Thereafter, the need for cheap and safe travel in order to open up the hinterland of the country led to the
+              expansion of the railway.<br><br>
+  
+              An extension of the Main Line to Kandy was made north to the ancient city of Anuradhapura, going further
+              north to Kankesanturai and west to
+              Talaimannar to connect the island with South India by ferry, to bring Indian labour for the tea and rubber
+              plantations, and also import rice and
+              other food stuffs not indigenously produced in sufficient quantities.<br><br>
+  
+              Towards the east, there was little economic justification to lay a line to the dry zone in that direction,
+              but it became strategically
+              worthwhile to lay a line to the natural harbour of Trincomalee and also connect it to the provincial capital
+              of Batticaloa.
+              These lines were laid with light (21 kg) section rails, as was the narrow gauge section to serve the rubber
+              plantations east of Colombo, known as the Kelani Valley Line.<br><br>
+  
+              Up country, a similar branch line was laid from Nanu Oya on the Main Line through very difficult terrain to
+              serve the tea plantations around
+              Nuwara Eliya. Track alignment was defined in this section about 140 years ago, when economic considerations
+              were vastly different.
+              The railways achieved modal superiority with speeds of 25 to 40 kmph in the hill country and 65 to 80 in the
+              low country. Civil engineering criteria was influenced by the economic need to minimize cuts and fills,
+              permitting gradients to 2 to 3 % and minimizing bridge lengths. As a result,
+              the alignment here is winding with very sharp curves.<br><br>
+  
+              In the early days of the railways, the bulk of the freight was carried to the port of Colombo and as the
+              port expanded,
+              rail lines were laid to serve every pier.
+          </p>
+      </div>
+  </section>
+    
+</section>
+
+
+  <!-- !footer starts here -->
+
+  <section class="footer-container">
+
+    <footer>
+      <div class="footer-content">
+        <h3>Sri Lanka Institute of Information Technology</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatum, necessitatibus eveniet
+          provident ducimus dignissimos veniam nisi consequatur dolore eligendi reiciendis tempora quod aspernatur
+          explicabo iste quae impedit, officia sit.</p>
+        <ul class="socials">
+          <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-youtube"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottem">
+        <p>copyright &copy;2020 Kaweesha Marasinghe. Designed by MLB_14.02_02</p>
+      </div>
+
+
+      
+    </footer>
+
+    <!-- !footer ends here -->
+
+
+  </section>
+
+
+  <!-- <script src="./JS/Form.js"></script> -->
+
+  <!-- !counting cards js connected -->
+  <script src="./JS/couting.js"></script>
+
+  <!-- !swiper.js library is added  -->
+  <script src="./JS/swiper-bundle.min.js"></script>
+
+  <!-- !iconicons icons pack js is added here -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+<script>
+
+  let checkbox = document.getElementById('toggle');
+  let pickReturn = document.getElementById('pickReturn');
+
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      pickReturn.style.display = "block";
+    } else {
+      pickReturn.style.display = "none";
+    }
+  });
+
+
+
+</script>
+
+<script src="./JS/table.js"></script>
+<!-- !Swiper JS -->
+<script src="js/swiper-bundle.min.js"></script>
+<!-- !JavaScript -->
+<script src="./JS/feedback.js"></script>
+
+
+
+</html>
