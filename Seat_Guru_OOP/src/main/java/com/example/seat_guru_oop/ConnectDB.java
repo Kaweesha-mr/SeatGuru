@@ -45,7 +45,6 @@ public class ConnectDB {
 
             System.out.println(e);
 
-
         }
 
     }
@@ -80,5 +79,44 @@ public class ConnectDB {
             return 0;
         }
 
+    }
+
+
+    public void updateUser(int username, String FName, String LName, String Email, String address, String city, int postalCode, String aboutMe,String Country) throws ClassNotFoundException, SQLException {
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = getConnection();
+
+        System.out.println(Country);
+        System.out.println(aboutMe);
+
+
+        try {
+            PreparedStatement ps = connection.prepareStatement("UPDATE user SET FName = ?, LName = ?, Email = ?, Address = ?, City = ?, PostalCode = ?, AboutMe = ? , Country = ? WHERE NIC = ?;");
+            ps.setString(1, FName);
+            ps.setString(2, LName);
+            ps.setString(3, Email);
+            ps.setString(4, address);
+            ps.setString(5, city);
+            ps.setInt(6, postalCode);
+            ps.setString(7, aboutMe);
+            ps.setString(8, Country);
+            ps.setInt(9, username);
+
+            int rs = ps.executeUpdate();
+
+
+
+            if (rs == 1){
+                System.out.println("Success");
+            }else {
+                System.out.println("unSuccess");
+            }
+
+
+        } catch (SQLException e) {
+
+            System.out.println(e);
+}
     }
 }

@@ -22,22 +22,22 @@
   <!-- add a icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- ======= Styles ====== -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/user_profile.css">
+  <link rel="stylesheet" href="UserDashbord/assets/css/style.css">
+  <link rel="stylesheet" href="UserDashbord/assets/css/user_profile.css">
 </head>
 
 <body>
 
 <%
-  String username = null;
-  String email = null;
-  String firstName = null;
-  String lastName = null;
-  String address = null;
-  String city = null;
-  String country = null;
-  String aboutMe = null;
-  String postalCode = null;
+  String username = "";
+  String email = "";
+  String firstName = "";
+  String lastName = "";
+  String address = "";
+  String city = "";
+  String country = "";
+  String aboutMe = "";
+  int postalCode = 0;
   try {
 
     ConnectDB connectDB = new ConnectDB();
@@ -51,7 +51,7 @@
 
     ResultSet rs = ps.executeQuery();
 
-    if (rs.next() == false) {
+    if (!rs.next()) {
 
       System.out.println("ResultSet in empty in Java");
 
@@ -63,7 +63,7 @@
       address = rs.getString("Address");
       city = rs.getString("City");
       country = rs.getString("Country");
-      postalCode = rs.getString("PostalCode");
+      postalCode = rs.getInt("PostalCode");
       aboutMe = rs.getString("ABoutMe");
     }
 
@@ -140,7 +140,7 @@
       </div>
 
       <div class="user">
-        <img src="assets/imgs/customer01.jpg" alt="">
+        <img src="UserDashbord/assets/imgs/customer01.jpg" alt="">
       </div>
     </div>
 
@@ -149,7 +149,7 @@
 
 
     <div class="card-body">
-      <form class="main-form" method="post" action="">
+      <form class="main-form" action="update-servlet" method="get">
         <div class="buttons_edit_delete" id="btnSet1">
           <button id="editBtn" class="btn btn-icon btn-3 btn-primary edit" type="button">
                                 <span class="btn-inner--icon">
@@ -181,7 +181,7 @@
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label" for="input-email">Email address</label>
-                  <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="<%=email%>>m" disabled>
+                  <input type="email" id="input-email" class="form-control form-control-alternative" name="Email" placeholder="<%=email%>>m" disabled>
                 </div>
               </div>
             </div>
@@ -189,13 +189,13 @@
               <div class="col-lg-6">
                 <div class="form-group focused">
                   <label class="form-control-label" for="input-first-name">First name</label>
-                  <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="<%=firstName%>" disabled>
+                  <input name="FName" type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="<%=firstName%>" disabled>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="form-group focused">
                   <label class="form-control-label" for="input-last-name">Last name</label>
-                  <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="<%=lastName%>" disabled>
+                  <input name="LName" type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="<%=lastName%>" disabled>
                 </div>
               </div>
             </div>
@@ -208,7 +208,7 @@
               <div class="col-md-12">
                 <div class="form-group focused">
                   <label class="form-control-label" for="input-address">Address</label>
-                  <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="<%=address%>" type="text" disabled>
+                  <input id="input-address" name="Address" class="form-control form-control-alternative" placeholder="Home Address" value="<%=address%>" type="text" disabled>
                 </div>
               </div>
             </div>
@@ -216,19 +216,19 @@
               <div class="col-lg-4">
                 <div class="form-group focused">
                   <label class="form-control-label" for="input-city">City</label>
-                  <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="<%=city%>" disabled>
+                  <input type="text" id="input-city" name="City" class="form-control form-control-alternative" placeholder="City" value="<%=city%>" disabled>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="form-group focused">
                   <label class="form-control-label" for="input-country">Country</label>
-                  <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="<%=country%>" disabled>
+                  <input type="text" name="Country" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="<%=country%>" disabled>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label" for="input-country">Postal code</label>
-                  <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="<%=postalCode%>" disabled>
+                  <input type="number" id="input-postal-code" name="PostalCode" class="form-control form-control-alternative" placeholder="Postal Code" value="<%=postalCode%>" disabled>
                 </div>
               </div>
             </div>
@@ -239,7 +239,7 @@
           <div class="pl-lg-4">
             <div class="form-group focused">
               <label>About Me</label>
-              <textarea rows="4" class="form-control form-control-alternative" value="<%=aboutMe%>" placeholder="A few words about you ..." disabled>A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+              <textarea  rows="4" name="AboutMe" class="form-control form-control-alternative" value="<%=aboutMe%>" placeholder="A few words about you ..." disabled ></textarea>
             </div>
           </div>
           <div class="save" id="btnSet2">
@@ -261,18 +261,12 @@
       </div>
     </div>
 
-
-
-
-
-
-
     <!-- !End user profile from here -->
   </div>
 </div>
 
   <!-- =========== Scripts =========  -->
-  <script src="assets/js/main.js"></script>
+  <script src="UserDashbord/assets/js/main.js"></script>
 
   <!-- ====== ionicons ======= -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
