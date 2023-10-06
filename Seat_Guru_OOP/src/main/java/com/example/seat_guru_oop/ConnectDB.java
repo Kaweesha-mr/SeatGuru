@@ -57,17 +57,26 @@ public class ConnectDB {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
 
-        PreparedStatement ps = connection.prepareStatement("select * from bus_ticket_reservation_system.user where NIC = ? and Password = ?");
+        PreparedStatement ps = connection.prepareStatement("select NIC,Password from bus_ticket_reservation_system.user where NIC = ? and Password = ?");
         ps.setInt(1, nic);
         ps.setString(2, password);
-
         ResultSet rs = ps.executeQuery();
 
         if(rs.next()){
-            return 1;
 
+            int NIC = rs.getInt("NIC");
+
+            String Password = rs.getString("Password");
+
+            if(Password.equals(password)){
+                System.out.println("value 1 returned");
+                return 1;
+            }else{
+                System.out.println("value 0 returned");
+                return 0;
+            }
         }else{
-
+            System.out.println("query empty");
             return 0;
         }
 

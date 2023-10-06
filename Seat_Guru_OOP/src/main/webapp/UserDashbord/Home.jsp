@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +21,7 @@
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title">Resevate</span>
+                        <span class="title"></span>
                     </a>
                 </li>
 
