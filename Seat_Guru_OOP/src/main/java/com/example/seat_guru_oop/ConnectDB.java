@@ -1,6 +1,7 @@
 package com.example.seat_guru_oop;
 
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.Cookie;
 
 import java.sql.*;
 
@@ -142,4 +143,33 @@ public class ConnectDB {
             System.out.println(e);
 }
     }
-}
+
+    public void search(String to, String from, String date) throws ClassNotFoundException {
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = getConnection();
+
+        try{
+            PreparedStatement ps = connection.prepareStatement("SELECT BusID FROM bus_route WHERE bus_route.To = ? AND bus_route.From = ? AND ? BETWEEN bus_route.SDate and bus_route.EDate;");
+            ps.setString(1, to);
+            ps.setString(2, from);
+            ps.setString(3, date);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()){
+                System.out.println("bus found");
+                Cookie cookie = new Cookie("BusID", String.valueOf(rs.getInt("BusID")));
+                cookie.setMaxAge(3600);
+
+                System.out.println(rs.getInt("BusID"));
+
+            }else {
+                System.out.println("No buses found");
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        }
+
+    }
