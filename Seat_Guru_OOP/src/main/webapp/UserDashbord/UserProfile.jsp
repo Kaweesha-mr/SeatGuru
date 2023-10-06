@@ -149,7 +149,7 @@
 
 
     <div class="card-body">
-      <form class="main-form">
+      <form class="main-form" method="post" action="">
         <div class="buttons_edit_delete" id="btnSet1">
           <button id="editBtn" class="btn btn-icon btn-3 btn-primary edit" type="button">
                                 <span class="btn-inner--icon">
