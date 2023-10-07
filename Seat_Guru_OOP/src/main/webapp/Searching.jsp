@@ -216,7 +216,7 @@
 
 <!-- !footer starts here -->
 
-<section class="footer-container">
+<section class="footer-container" style="position: absolute; border: 0">
 
     <footer>
         <div class="footer-content">
@@ -262,6 +262,8 @@
 </body>
 
 <script>
+
+
 
     let checkbox = document.getElementById('toggle');
     let pickReturn = document.getElementById('pickReturn');

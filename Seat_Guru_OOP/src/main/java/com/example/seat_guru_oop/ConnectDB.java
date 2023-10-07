@@ -6,6 +6,8 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpSession;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConnectDB {
     private String dburl = "jdbc:mysql://localhost:3306/bus_ticket_reservation_system";
@@ -127,6 +129,9 @@ public class ConnectDB {
         Connection connection = getConnection();
 
         try {
+
+
+
             PreparedStatement ps = connection.prepareStatement("DELETE FROM user WHERE NIC = ?;");
             ps.setInt(1, username);
 
@@ -143,34 +148,33 @@ public class ConnectDB {
         }
     }
 
-    public int search(String to, String from, String date) throws ClassNotFoundException, SQLException {
+    public List<BusRoute> search(String to, String from, String date) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            ps = connection.prepareStatement("SELECT BusID,Name,Color,NoSeat,Bus_Reg_No,Dep,Arr FROM bus_route,bus WHERE  bus_route.To = ? AND bus_route.From = ? AND ? BETWEEN bus_route.SDate and bus_route.EDate;");
-            ps.setString(1, to);
-            ps.setString(2, from);
-            ps.setString(3, date);
-            rs = ps.executeQuery();
 
-        } catch (SQLException e) {
-            System.out.println(e);
-        } finally {
-            if (rs.next()) {
-                System.out.println("bus found");
 
-                return rs.getInt("BusID");
-            } else {
-                System.out.println("No buses found");
-            }
+        List<BusRoute> busRoutes = new ArrayList<>();
+
+        PreparedStatement ps = connection.prepareStatement("select * from bus_ticket_reservation_system.bus_route where bus_route.To = ? and bus_route.From = ? and  ? BETWEEN  bus_route.SDate and  bus_route.EDate;");
+        ps.setString(1, to);
+        ps.setString(2, from);
+        ps.setString(3, date);
+        ResultSet rs = ps.executeQuery();
+
+
+        while (rs.next()) {
+            BusRoute busRoute = new BusRoute();
+            busRoute.setId(rs.getInt("BusID"));
+            busRoutes.add(busRoute);
 
         }
 
-        return 0;
+
+
+        return busRoutes;
     }
-
-
 }
+
+
+

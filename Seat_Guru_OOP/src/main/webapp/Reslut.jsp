@@ -1,8 +1,15 @@
+        <% String Dep = null;
+          String Arr = null;%>
 <%@ page import="com.example.seat_guru_oop.ConnectDB" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.seat_guru_oop.BusRoute" %>
+<%--add jstl--%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,72 +76,29 @@
   <!-- !navigation Bar ended-->
 
   <main>
-
-    <%
-      try {
-        int busID = 0;
-        ConnectDB connectDB = new ConnectDB();
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = connectDB.getConnection();
-
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-          for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("Busid")) {
-              busID = Integer.parseInt(cookie.getValue());
-            }
-          }
-        }
-
-        System.out.println(busID);
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-          ps = connection.prepareStatement("SELECT Name,Type,Bus_Reg_No,Dep,Arr,bus_route.To,bus_route.From,bus_route.TicketP FROM bus,bus_route where bus_route.BusID=bus.BusID AND bus.BusID =?;");
-          ps.setInt(1, busID);
-          rs = ps.executeQuery();
-        } catch (SQLException e) {
-
-            System.out.println(e);
-        }
-
-        assert rs != null;
-        if (!rs.next()) {
-
-          System.out.println("ResultSet in empty in Java");
-
-        } else {
-          String name = rs.getString("Name");
-            String type = rs.getString("Type");
-            String busRegNo = rs.getString("Bus_Reg_No");
-            String dep = rs.getString("Dep");
-            String arr = rs.getString("Arr");
-            String to = rs.getString("To");
-            String from = rs.getString("From");
-            String ticketP = rs.getString("TicketP");
-
-
-        }
-
-
-      } catch (SQLException | ClassNotFoundException e) {
-        System.out.println(e);
-      }
-    %>
-
-    <div class="container">
+    <div class="row">
+    <div class="col-md-12 col-sm-12 mx-auto border-land">
       <div class="table-title">
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: space-between;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    padding-left: 2em;
+    font-size: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;">
           <label><i class="fas fa-subway"></i>
             <span class="train-proceed">
                              Train Info
                           </span>
           </label>
           <div class="table-title-route" id="oneway_stations">
-            <span><span class="s-station">TO</span></span>
+            <span><span class="s-station"><%=Dep%></span></span>
             <span><i class="fas fa-chevron-right"></i></span>
-            <span><span class="e-station">Colombo Fort</span></span>
-            <span><img src="images/icons/train_2.svg" style="float: right" height="60"></span>
+            <span><span class="e-station"><%=Arr%></span></span>
           </div>
           <small style="margin-bottom: 8px;" class="form-text text-muted" id="oneway_date">Date
             - 2023-10-17</small>
@@ -144,56 +108,88 @@
                       </span>
         </div>
       </div>
+
+
+<%--    create table in botstrap--%>
+    <div class="container">
       <div class="row">
-        <div class="col-sm-12">
-          <table class="table table-dark table-hover">
-            <thead>
-            <tr>
-              <th scope="col">Bus Name</th>
-              <th scope="col">From</th>
-              <th scope="col">To</th>
-              <th scope="col">Ticket Price</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <th scope="row">Kandy Express</th>
-              <td>Kandy</td>
-              <td>Colombo</td>
-              <td>Rs. 500</td>
-            </tr>
-            <tr>
-              <th scope="row">Kandy Express</th>
-              <td>Kandy</td>
-              <td>Colombo</td>
-              <td>Rs. 500</td>
-            </tr>
-            <tr>
-              <th scope="row">Kandy Express</th>
-              <td>Kandy</td>
-              <td>Colombo</td>
-              <td>Rs. 500</td>
-            </tr>
+        <div class="col-md-12">
+          <h4>Bus Routes</h4>
+          <div class="table-responsive">
+            <table id="mytable" class="table table-bordred table-striped">
+              <thead>
+                <th>Bus Name</th>
+                <th>Bus Type</th>
+                <th>Reg_Num</th>
+                <th>Dep</th>
+                <th>Arr</th>
+                <th>Select Bus</th>
+              </thead>
+              <tbody>
+<%
 
-            <tr>
-              <th scope="row">Kandy Express</th>
-              <td>Kandy</td>
-              <td>Colombo</td>
-              <td>Rs. 500</td>
-            </tr>
+  try {
+    ArrayList<BusRoute> originalArrayList = (ArrayList<BusRoute>) request.getAttribute("busRoutes");
 
-            <tr>
-              <th scope="row">Kandy Express</th>
-              <td>Kandy</td>
-              <td>Colombo</td>
-              <td>Rs. 500</td>
-            </tr>
+//        create connection
+    ConnectDB connectDB = new ConnectDB();
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection connection = connectDB.getConnection();
 
-            </tbody>
-          </table>
+    for (BusRoute route : originalArrayList) {
+
+      PreparedStatement ps = connection.prepareStatement("SELECT * FROM bus_ticket_reservation_system.bus,bus_ticket_reservation_system.bus_route where bus.BusID=bus_route.BusID and bus.BusID = ?;");
+      ps.setInt(1, route.getId());
+      ResultSet rs = ps.executeQuery();
+
+      String busName = null;
+      String busType = null;
+      String Reg_num = null;
+      Dep = null;
+      Arr = null;
+      while (rs.next()) {
+        busName = rs.getString("Name");
+        busType = rs.getString("Type");
+        Reg_num = rs.getString("Bus_Reg_No");
+        Dep = rs.getString("Dep");
+        Arr = rs.getString("Arr");
+
+
+        System.out.println(busName);
+        System.out.println(busType);
+        System.out.println(Reg_num);
+        System.out.println(Dep);
+        System.out.println(Arr);
+      }
+
+%>
+
+<tr>
+                <td><a href="#"><%=busName%></a> </td>
+                <td><a href="#"> <%=busType%></a></td>
+                <td><a href="#"><%=Reg_num%></a> </td>
+                <td><a href="#"><%=Dep%></a> </td>
+                <td><A href="#"><%=Arr%></A> </td>
+                <td><A href="#"><button href="#">Select</button></A> </td>
+</tr>
+
+
+              <%
+                  }
+                } catch (Exception e) {
+                  System.out.println(e);
+                }
+
+              %>
+                  </tbody>
+                </table>
+             </div>
+          </div>
         </div>
-      </div>
-      </div>
+        </div>
+
+
+
 
   </main>
 
@@ -207,9 +203,6 @@
     <footer>
       <div class="footer-content">
         <h3>Sri Lanka Institute of Information Technology</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatum, necessitatibus eveniet
-          provident ducimus dignissimos veniam nisi consequatur dolore eligendi reiciendis tempora quod aspernatur
-          explicabo iste quae impedit, officia sit.</p>
         <ul class="socials">
           <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
           <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>

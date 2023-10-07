@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- !navigation Bar -->
+    <header>
+      <div class="nav-bar">
+        <a href="" class="logo">Fashion Treak Garments</a>
+        <div class="navigation">
+          <div class="nav-items">
+            <a href="../Landing/Landing.html"> Home</a>
+            <a href="./ContactUs.html"> Contact Us</a>
+            <a href="./about us/aboutUs.html"> About Us</a>
+            <!-- make this button blue ane make it red when hover -->
+            <a href="../Login Register Page/index.html"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
+  
+          </div>
+        </div>
+      </div>
+    </header>
+  
+
+    <div class="card-container">
+
+      <div class="left">
+        <div class="tickets">
+          <div class="ticket-selector">
+            <div class="head">
+              <div class="title">Movie Name</div>
+            </div>
+            <div class="seats">
+              <div class="status">
+                <div class="item">Available</div>
+                <div class="item">Booked</div>
+                <div class="item">Selected</div>
+              </div>
+              <div class="all-seats">
+                <input type="checkbox" name="tickets" id="s1"  />
+                <label for="s1" class="seat booked"></label>
+  
+              </div>
+            </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="right">
+      <div class="form-container tickets">
+
+        <!-- create a form with select seats option with dropdown menu -->
+
+        <form action="" method="get" class="tickForm">
+          <h1>Chose Ticket</h1>
+          <label for="">Seats</label>
+          <select id="seats">
+
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="A3">A3</option>
+            <option value="A4">A4</option>
+
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="B3">B3</option>
+            <option value="B4">B4</option>
+
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+            <option value="C3">C3</option>
+            <option value="C4">C4</option>
+
+            <option value="D1">D1</option>
+            <option value="D2">D2</option>
+            <option value="D3">D3</option>
+            <option value="D4">D4</option>
+
+            <option value="E1">E1</option>
+            <option value="E2">E2</option>
+            <option value="E3">E3</option>
+            <option value="E4">E4</option>
+
+            <option value="F1">F1</option>
+            <option value="F2">F2</option>
+            <option value="F3">F3</option>
+            <option value="F4">F4</option>
+
+            <option value="G1">G1</option>
+            <option value="G2">G2</option>
+            <option value="G3">G3</option>
+            <option value="G4">G4</option>
+          </select>
+
+          <label for="">Number of Tickets</label>
+          <input type="text" name="tickets" id="tickets" min="1" max="10" value="100"/>
+
+          <label for="">Amount</label>
+          <input type="text" name="amount" id="amount" value="200.00" readonly />
+
+          <button type="submit" >Book Now</button>
+          <button type="reset">Reset</button>
+
+        </form>
+      </div>
+    </div>
+
+    </div>
+  
+    <!-- !navigation Bar ended-->
+    
+
+
+
+
+      <section class="footer-container">
+
+        <footer>
+          <div class="footer-content">
+            <h3>Sri Lanka Institute of Information Technology</h3>
+            <ul class="socials">
+              <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+              <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+              <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+              <li><a href="#"> <i class="fa fa-youtube"></i> </a></li>
+              <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+            </ul>
+          </div>
+    
+          <div class="footer-bottem">
+            <p>copyright &copy;2020 Kaweesha Marasinghe. Designed by MLB_14.02_02</p>
+          </div>
+    
+        </footer>
+  
+      <script>
+         let seats = document.querySelector(".all-seats");
+         for (var i = 0; i < 31; i++) {
+           let randint = Math.floor(Math.random() * 2);
+           seats.insertAdjacentHTML(
+             "beforeend",
+             '<input disabled type="checkbox" name="tickets" id="s' +
+               (i + 2) +
+               '" /><label for="s' +
+               (i + 2) +
+               '" class="seat" ></label>'
+           );
+         }
+  
+        let tickets = seats.querySelectorAll("input");
+        tickets.forEach((ticket) => {
+          ticket.addEventListener("change", () => {
+            let amount = document.querySelector(".amount").innerHTML;
+            let count = document.querySelector(".count").innerHTML;
+            amount = Number(amount);
+            count = Number(count);
+  
+            if (ticket.checked) {
+              count += 1;
+              amount += 200;
+            } else {
+              count -= 1;
+              amount -= 200;
+            }
+            document.querySelector(".amount").innerHTML = amount;
+            document.querySelector(".count").innerHTML = count;
+          });
+        });
+      </script>
+  
+  
+  
+  
+  
+    </body>
+</body>
+</html>

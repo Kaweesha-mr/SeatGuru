@@ -1,11 +1,13 @@
 package com.example.seat_guru_oop;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 @WebServlet(name = "search", value = "/search")
 public class Search extends HttpServlet {
@@ -22,30 +24,33 @@ public class Search extends HttpServlet {
         String Passanger = req.getParameter("passanger");
 
 
-        System.out.println(To);
-        System.out.println(From);
-        System.out.println(date);
+        System.out.println("To: " + To);
+        System.out.println("From: " + From);
+        System.out.println("Date: " + date);
 
 
         To = To.toLowerCase();
         From = From.toLowerCase();
 
+        List<BusRoute> busRoutes = null;
         ConnectDB connectDB = new ConnectDB();
 
         try {
             Connection connection = connectDB.getConnection();
-            int Busid = connectDB.search(To,From,date);
 
-            if(Busid == 0){
-                System.out.println("No Bus Found");
+            try {
+
+                busRoutes = connectDB.search(To, From, date);
+                // Set the ArrayList as an attribute in the request
+                req.setAttribute("busRoutes", busRoutes);
+
+                // Forward the request to the jsp file
+                RequestDispatcher dispatcher = req.getRequestDispatcher("Reslut.jsp");
+                dispatcher.forward(req, resp);
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
-            else{
-                System.out.println("Bus Found");
-                Cookie cookie = new Cookie("Busid", String.valueOf(Busid));
-                cookie.setMaxAge(60*60*24);
-                resp.addCookie(cookie);
-            }
-            resp.sendRedirect("Reslut.jsp");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
