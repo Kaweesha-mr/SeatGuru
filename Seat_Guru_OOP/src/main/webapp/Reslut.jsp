@@ -76,27 +76,29 @@
         ConnectDB connectDB = new ConnectDB();
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = connectDB.getConnection();
+
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
           for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("BusID")) {
+            if (cookie.getName().equals("Busid")) {
               busID = Integer.parseInt(cookie.getValue());
             }
           }
         }
 
-
         System.out.println(busID);
         PreparedStatement ps = null;
-        ResultSet rs;
+        ResultSet rs = null;
         try {
-          ps = connection.prepareStatement("SELECT Name,Type,Bus_Reg_No,Dep,Arr FROM bus_ticket_reservation_system.bus where bus.BusID =?;");
+          ps = connection.prepareStatement("SELECT Name,Type,Bus_Reg_No,Dep,Arr,bus_route.To,bus_route.From,bus_route.TicketP FROM bus,bus_route where bus_route.BusID=bus.BusID AND bus.BusID =?;");
           ps.setInt(1, busID);
           rs = ps.executeQuery();
         } catch (SQLException e) {
-          throw new RuntimeException(e);
+
+            System.out.println(e);
         }
 
+        assert rs != null;
         if (!rs.next()) {
 
           System.out.println("ResultSet in empty in Java");
@@ -107,12 +109,10 @@
             String busRegNo = rs.getString("Bus_Reg_No");
             String dep = rs.getString("Dep");
             String arr = rs.getString("Arr");
+            String to = rs.getString("To");
+            String from = rs.getString("From");
+            String ticketP = rs.getString("TicketP");
 
-            System.out.println(name);
-            System.out.println(type);
-            System.out.println(busRegNo);
-            System.out.println(dep);
-            System.out.println(arr);
 
         }
 
@@ -131,7 +131,7 @@
                           </span>
           </label>
           <div class="table-title-route" id="oneway_stations">
-            <span><span class="s-station">Kurunegala</span></span>
+            <span><span class="s-station">TO</span></span>
             <span><i class="fas fa-chevron-right"></i></span>
             <span><span class="e-station">Colombo Fort</span></span>
             <span><img src="images/icons/train_2.svg" style="float: right" height="60"></span>

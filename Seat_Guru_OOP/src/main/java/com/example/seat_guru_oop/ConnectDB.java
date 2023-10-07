@@ -1,7 +1,9 @@
 package com.example.seat_guru_oop;
 
+import com.mysql.cj.Session;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpSession;
 
 import java.sql.*;
 
@@ -21,11 +23,11 @@ public class ConnectDB {
         return con;
     }
 
-    public void register (User Usr) throws SQLException, ClassNotFoundException {
+    public void register(User Usr) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
 
-        String sql  = "insert into bus_ticket_reservation_system.user (NIC, FName, LName, Email,Password) values (?,?,?,?,?);";
+        String sql = "insert into bus_ticket_reservation_system.user (NIC, FName, LName, Email,Password) values (?,?,?,?,?);";
 
         int isSuccess = 0;
         try {
@@ -37,9 +39,9 @@ public class ConnectDB {
             ps.setString(5, Usr.getPassword());
             int rs = ps.executeUpdate();
 
-            if (rs == 1){
+            if (rs == 1) {
                 System.out.println("Success");
-            }else {
+            } else {
                 System.out.println("unSuccess");
             }
         } catch (SQLException e) {
@@ -49,7 +51,6 @@ public class ConnectDB {
         }
 
     }
-
 
 
     public int login(int nic, String password) throws ClassNotFoundException, SQLException {
@@ -62,20 +63,20 @@ public class ConnectDB {
         ps.setString(2, password);
         ResultSet rs = ps.executeQuery();
 
-        if(rs.next()){
+        if (rs.next()) {
 
             int NIC = rs.getInt("NIC");
 
             String Password = rs.getString("Password");
 
-            if(Password.equals(password)){
+            if (Password.equals(password)) {
                 System.out.println("value 1 returned");
                 return 1;
-            }else{
+            } else {
                 System.out.println("value 0 returned");
                 return 0;
             }
-        }else{
+        } else {
             System.out.println("query empty");
             return 0;
         }
@@ -83,7 +84,7 @@ public class ConnectDB {
     }
 
 
-    public void updateUser(int username, String FName, String LName, String Email, String address, String city, int postalCode, String aboutMe,String Country) throws ClassNotFoundException, SQLException {
+    public void updateUser(int username, String FName, String LName, String Email, String address, String city, int postalCode, String aboutMe, String Country) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
@@ -107,10 +108,9 @@ public class ConnectDB {
             int rs = ps.executeUpdate();
 
 
-
-            if (rs == 1){
+            if (rs == 1) {
                 System.out.println("Success");
-            }else {
+            } else {
                 System.out.println("unSuccess");
             }
 
@@ -118,7 +118,7 @@ public class ConnectDB {
         } catch (SQLException e) {
 
             System.out.println(e);
-}
+        }
     }
 
     public void deleteUser(int username) throws ClassNotFoundException, SQLException {
@@ -132,44 +132,45 @@ public class ConnectDB {
 
             int rs = ps.executeUpdate();
 
-            if (rs == 1){
+            if (rs == 1) {
                 System.out.println("Success");
-            }else {
+            } else {
                 System.out.println("unSuccess");
             }
-}
-        catch (SQLException e) {
+        } catch (SQLException e) {
 
             System.out.println(e);
-}
+        }
     }
 
-    public void search(String to, String from, String date) throws ClassNotFoundException {
+    public int search(String to, String from, String date) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
-
-        try{
-            PreparedStatement ps = connection.prepareStatement("SELECT BusID FROM bus_route WHERE bus_route.To = ? AND bus_route.From = ? AND ? BETWEEN bus_route.SDate and bus_route.EDate;");
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = connection.prepareStatement("SELECT BusID,Name,Color,NoSeat,Bus_Reg_No,Dep,Arr FROM bus_route,bus WHERE  bus_route.To = ? AND bus_route.From = ? AND ? BETWEEN bus_route.SDate and bus_route.EDate;");
             ps.setString(1, to);
             ps.setString(2, from);
             ps.setString(3, date);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()){
-                System.out.println("bus found");
-                Cookie cookie = new Cookie("BusID", String.valueOf(rs.getInt("BusID")));
-                cookie.setMaxAge(3600);
-
-                System.out.println(rs.getInt("BusID"));
-
-            }else {
-                System.out.println("No buses found");
-            }
+            rs = ps.executeQuery();
 
         } catch (SQLException e) {
             System.out.println(e);
-        }
+        } finally {
+            if (rs.next()) {
+                System.out.println("bus found");
+
+                return rs.getInt("BusID");
+            } else {
+                System.out.println("No buses found");
+            }
+
         }
 
+        return 0;
     }
+
+
+}

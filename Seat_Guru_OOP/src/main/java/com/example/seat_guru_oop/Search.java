@@ -2,9 +2,7 @@ package com.example.seat_guru_oop;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -36,8 +34,19 @@ public class Search extends HttpServlet {
 
         try {
             Connection connection = connectDB.getConnection();
-            connectDB.search(To,From,date);
+            int Busid = connectDB.search(To,From,date);
+
+            if(Busid == 0){
+                System.out.println("No Bus Found");
+            }
+            else{
+                System.out.println("Bus Found");
+                Cookie cookie = new Cookie("Busid", String.valueOf(Busid));
+                cookie.setMaxAge(60*60*24);
+                resp.addCookie(cookie);
+            }
             resp.sendRedirect("Reslut.jsp");
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
