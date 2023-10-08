@@ -169,7 +169,6 @@
                 <td><A href="BookTicket?id=<%=route.getId()%>"> <button>Select</button></A></td>
 </tr>
 
-
               <%
                   }
                 } catch (Exception e) {

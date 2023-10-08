@@ -174,6 +174,30 @@ public class ConnectDB {
 
         return busRoutes;
     }
+
+    public void updateBooking(String id, String seat) throws ClassNotFoundException, SQLException {
+        System.out.println("amor amor me update booking");
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = getConnection();
+
+        try {
+            PreparedStatement ps = connection.prepareStatement("CALL ReduceSeatCount(?, ?);");
+            ps.setString(2, seat);
+            ps.setString(1, id);
+
+            int rs = ps.executeUpdate();
+
+            if (rs == 1) {
+                System.out.println("Success");
+            } else {
+                System.out.println("unSuccess");
+            }
+
+    } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 
 
