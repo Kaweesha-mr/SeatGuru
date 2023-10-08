@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,25 +36,16 @@
 
 </head>
 
+<% if (session == null || session.getAttribute("UserId") == null) {
+
+    response.sendRedirect("./login.jsp");
+}
+
+%>
+
 <body>
 
-<header>
-    <div class="nav-bar">
-        <a href="" class="logo">
-            <ion-icon name="bus-outline" class="logo"></ion-icon>
-            SeatGuru</a>
-        <div class="navigation">
-            <div class="nav-items">
-                <a href="Landing/Landing.html"> Home</a>
-                <a href="./ContactUs.html"> Contact Us</a>
-                <a href="./about us/aboutUs.html"> About Us</a>
-                <!-- make this button blue ane make it red when hover -->
-                <a href="../Login Register Page/index.html"><button type="button"
-                                                                    class="btn btn-dark btnlogin">Login</button></a>
-            </div>
-        </div>
-    </div>
-</header>
+<jsp:include page="./NavigationBar.jsp" />
 
 
 <main>
@@ -216,14 +208,11 @@
 
 <!-- !footer starts here -->
 
-<section class="footer-container" style="position: absolute; border: 0">
+<section class="footer-container">
 
     <footer>
         <div class="footer-content">
             <h3>Sri Lanka Institute of Information Technology</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatum, necessitatibus eveniet
-                provident ducimus dignissimos veniam nisi consequatur dolore eligendi reiciendis tempora quod aspernatur
-                explicabo iste quae impedit, officia sit.</p>
             <ul class="socials">
                 <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
                 <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
@@ -236,8 +225,6 @@
         <div class="footer-bottem">
             <p>copyright &copy;2020 Kaweesha Marasinghe. Designed by MLB_14.02_02</p>
         </div>
-
-
 
     </footer>
 
@@ -277,6 +264,18 @@
     });
 
 
+    let sessionAvlble = <% if(session == null || session.getAttribute("UserId") == null){%> false <%}else{%> true <%}%>
+
+    if(sessionAvlble){
+        document.querySelector('#login').style.display = 'none';
+        document.querySelector('#logout').style.display = 'block';
+    }
+    else{
+        document.querySelector('#login').style.display = 'block';
+        document.querySelector('#logout').style.display = 'none';
+    }
+
+
 
 </script>
 
@@ -285,7 +284,5 @@
 <script src="js/swiper-bundle.min.js"></script>
 <!-- !JavaScript -->
 <script src="Landing/JS/feedback.js"></script>
-
-
 
 </html>

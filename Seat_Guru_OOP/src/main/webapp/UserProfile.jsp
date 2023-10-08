@@ -1,4 +1,4 @@
-        <%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="static java.sql.DriverManager.getConnection" %>
@@ -22,11 +22,18 @@
   <!-- add a icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- ======= Styles ====== -->
-  <link rel="stylesheet" href="UserDashbord/assets/css/style.css">
-  <link rel="stylesheet" href="UserDashbord/assets/css/user_profile.css">
+  <link rel="stylesheet" href="./UserDashbord/assets/css/style.css">
+  <link rel="stylesheet" href="./UserDashbord/assets/css/user_profile.css">
 </head>
 
 <body>
+
+<% if (session == null || session.getAttribute("UserId") == null) {
+
+  response.sendRedirect("login.jsp");
+}
+
+%>
 
 <%
   String username = "";
@@ -44,6 +51,7 @@
     Class.forName("com.mysql.cj.jdbc.Driver");
     Connection connection = connectDB.getConnection();
 
+    assert session != null;
     int NIC = (int) session.getAttribute("UserId");
     System.out.println(NIC);
     PreparedStatement ps = connection.prepareStatement("select * from bus_ticket_reservation_system.user where NIC =?");
@@ -87,7 +95,7 @@
       </li>
 
       <li>
-        <a href="../Admin Dashbord - Employee/Home.html">
+        <a href="#">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -95,7 +103,7 @@
         </a>
       </li>
       <li>
-        <a href="../Admin Dashbord - Employee/UserProfile.html">
+        <a href="#">
                         <span class="icon">
                             <!-- add user profile icon -->
                             <ion-icon name="person-outline"></ion-icon>
@@ -115,7 +123,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="logout">
                         <span class="icon">
                             <!-- add message icon -->
                             <ion-icon name="log-out-outline"></ion-icon>

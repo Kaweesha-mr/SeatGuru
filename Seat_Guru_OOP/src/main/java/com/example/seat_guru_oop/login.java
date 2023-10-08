@@ -35,9 +35,10 @@ public class login extends HttpServlet {
                HttpSession session = req.getSession(true);
                session.setAttribute("UserId", Nic);
                out.println(session.getAttribute("UserId"));
-               resp.sendRedirect("UserProfile.jsp");
+               resp.sendRedirect("Landing.jsp");
 
               }else {
+
                resp.sendRedirect("login.jsp");
            }
 

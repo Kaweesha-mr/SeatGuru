@@ -6,9 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./UserDashbord/assets/css/style.css">
+    <link rel="stylesheet" href="./UserDashbord/assets/css/user_profile.css">
+</head>
+
 </head>
 
 <body>
@@ -79,7 +82,7 @@
                 </div>
 
                 <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
+                    <img src="UserDashbord/assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
 
@@ -206,7 +209,7 @@
                     <table>
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="UserDashbord/assets/imgs/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -215,7 +218,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="UserDashbord/assets/imgs/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -224,7 +227,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="UserDashbord/assets/imgs/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -233,7 +236,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="UserDashbord/assets/imgs/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -242,7 +245,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="UserDashbord/assets/imgs/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -251,7 +254,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="UserDashbord/assets/imgs/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -260,7 +263,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="UserDashbord/assets/imgs/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -269,7 +272,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="UserDashbord/assets/imgs/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -282,7 +285,7 @@
     </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
+    <script src="UserDashbord/assets/js/main.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

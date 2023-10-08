@@ -14,22 +14,15 @@
 </head>
 <body>
 
-<!-- !navigation Bar -->
-<header>
-  <div class="nav-bar">
-    <a href="" class="logo">Fashion Treak Garments</a>
-    <div class="navigation">
-      <div class="nav-items">
-        <a href="../Landing/Landing.html"> Home</a>
-        <a href="./ContactUs.html"> Contact Us</a>
-        <a href="./about us/aboutUs.html"> About Us</a>
-        <!-- make this button blue ane make it red when hover -->
-        <a href="../Login Register Page/index.html"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
+<% if (session == null || session.getAttribute("UserId") == null) {
 
-      </div>
-    </div>
-  </div>
-</header>
+  response.sendRedirect("./login.jsp");
+}
+  else{
+
+%>
+
+<jsp:include page="./NavigationBar.jsp" />
 
 
 <div class="card-container">
@@ -128,10 +121,24 @@
     })
 
 
+    let sessionAvlble = <% if(session == null || session.getAttribute("UserId") == null){%> false <%}else{%> true <%}%>
+
+    if(sessionAvlble){
+      document.querySelector('#login').style.display = 'none';
+      document.querySelector('#logout').style.display = 'block';
+    }
+    else{
+      document.querySelector('#login').style.display = 'block';
+      document.querySelector('#logout').style.display = 'none';
+    }
+
+
+
+
 
 
   </script>
 
 </body>
-
 </html>
+        <%}%>

@@ -48,7 +48,7 @@
         SeatGuru</a>
       <div class="navigation">
         <div class="nav-items">
-          <a href="../Landing/Landing.html"> Home</a>
+          <a href="../Landing.jsp"> Home</a>
           <a href="./ContactUs.html"> Contact Us</a>
           <a href="./about us/aboutUs.html"> About Us</a>
           <!-- make this button blue ane make it red when hover -->

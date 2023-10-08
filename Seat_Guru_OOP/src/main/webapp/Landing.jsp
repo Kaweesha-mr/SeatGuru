@@ -8,7 +8,7 @@
   <title>Garment And Management System</title>
 
   <!-- !external resouces that are got to style the landing page and login,register popup -->
-  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./Landing/css/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
 
@@ -19,13 +19,12 @@
 
 
   <!-- !styles for main landing page -->
-  <link rel="stylesheet" href="./css/Slider_style.css">
-  <link rel="stylesheet" href="./css/Navigation_bar.css">
-  <link rel="stylesheet" href="./css/Cards.css">
-  <link rel="stylesheet" href="./css/counting.css">
-  <link rel="stylesheet" href="./css/feedback.css">
-  <link rel="stylesheet" href="./css/footer.css">
-  <link rel="stylesheet" href="./css/form.css">
+  <link rel="stylesheet" href="./Landing/css/Slider_style.css">
+  <link rel="stylesheet" href="./Landing/css/Navigation_bar.css">
+  <link rel="stylesheet" href="./Landing/css/Cards.css">
+  <link rel="stylesheet" href="./Landing/css/counting.css">
+  <link rel="stylesheet" href="./Landing/css/feedback.css">
+  <link rel="stylesheet" href="./Landing/css/footer.css">
 
   <!-- font-awesome libarary for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
@@ -40,24 +39,20 @@
 </head>
 
 <body>
-  <!-- !navigation Bar -->
-  <header>
-    <div class="nav-bar">
-      <a href="" class="logo">Fashion Treak Garments</a>
-      <div class="navigation">
-        <div class="nav-items">
-          <a href="../Landing/Landing.html"> Home</a>
-          <a href="./ContactUs.html"> Contact Us</a>
-          <a href="./about us/aboutUs.html"> About Us</a>
-          <!-- make this button blue ane make it red when hover -->
-          <a href="../Login Register Page/index.html"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
+<header>
+  <div class="nav-bar">
+    <a href="" class="logo">Fashion Treak Garments</a>
+    <div class="navigation">
+      <div class="nav-items">
+        <a href="./Landing.jsp"> Home</a>
+        <a href="./Searching.jsp"> Search for a bus</a>
+        <a href="./UserProfile.jsp"> User Profile</a>
+        <a id="login" href="./login.jsp"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
 
-        </div>
       </div>
     </div>
-  </header>
-
-
+  </div>
+</header>
   <!-- !navigation Bar ended-->
 
 
@@ -73,7 +68,7 @@
       <!-- Image slide 1 -->
       <div class="swiper-wrapper dark-layer">
         <div class="swiper-slide">
-          <img src="./Img/3.jpg" alt="" height="750px" width="1500px">
+          <img src="./Landing/Img/3.jpg" alt="" height="750px" width="1500px">
 
           <div class="text-content">
             <h2 class="title">Overview<span>Our factory's capabilities and expertise</span></h2>
@@ -91,7 +86,7 @@
 
         <!-- Image slide 2 -->
         <div class="swiper-slide dark-layer">
-          <img src="./Img/1.jpg" alt="" height="750px" width="1500px">
+          <img src="./Landing/Img/1.jpg" alt="" height="750px" width="1500px">
           <div class="text-content">
             <h2 class="title">Sustainability<span>ethical and sustainable manufacturing</span>
             </h2>
@@ -109,7 +104,7 @@
 
         <!-- image slide 3 -->
         <div class="swiper-slide dark-layer">
-          <img src="./Img/7.jpg" alt="" height="750px" width="1500px">
+          <img src="./Landing/Img/7.jpg" alt="" height="750px" width="1500px">
           <div class="text-content">
             <h2 class="title">Technology<span>advanced technology and equipment used in our factory</span>
             </h2>
@@ -127,7 +122,7 @@
         </div>
         <!-- image slide 4 -->
         <div class="swiper-slide dark-layer">
-          <img src="./Img/5.jpg" alt="" height="750px" width="1500px">
+          <img src="./Landing/Img/5.jpg" alt="" height="750px" width="1500px">
           <div class="text-content">
             <h2 class="title">Unique Selling Proposition</h2>
             <p>
@@ -145,10 +140,10 @@
       <!-- thumbnail -->
       <div class="bg-slider-thumbs">
         <div class="swiper-wrapper thumbs-container">
-          <img src="./Img/3.jpg" class="swiper-slide" alt="">
-          <img src="./Img/1.jpg" class="swiper-slide" alt="">
-          <img src="./Img/7.jpg" class="swiper-slide" alt="">
-          <img src="./Img/5.jpg" class="swiper-slide" alt="">
+          <img src="./Landing/Img/3.jpg" class="swiper-slide" alt="">
+          <img src="./Landing/Img/1.jpg" class="swiper-slide" alt="">
+          <img src="./Landing/Img/7.jpg" class="swiper-slide" alt="">
+          <img src="./Landing/Img/5.jpg" class="swiper-slide" alt="">
         </div>
       </div>
     </div>
@@ -161,7 +156,7 @@
     <div class="class-container">
 
       <div class="card">
-        <img src="./Img/card1.jpg" class="card-img" alt="">
+        <img src="./Landing/Img/card1.jpg" class="card-img" alt="">
         <div class="card-body">
           <h1 class="card-title">Discover Stylish and Trendy Garments</h1>
           <p class="card-info">Explore our collection of fashionable garments that blend style and comfort seamlessly.
@@ -173,7 +168,7 @@
 
       </div>
       <div class="card">
-        <img src="./Img/card2.jpg" class="card-img" alt="">
+        <img src="./Landing/Img/card2.jpg" class="card-img" alt="">
         <div class="card-body">
           <h1 class="card-title">Quality Craftsmanship and Durability</h1>
           <p class="card-info">Experience garments that are crafted with meticulous attention to detail and a commitment
@@ -186,7 +181,7 @@
       </div>
 
       <div class="card">
-        <img src="./Img/card3.jpg" class="card-img" alt="">
+        <img src="./Landing/Img/card3.jpg" class="card-img" alt="">
         <div class="card-body">
           <h1 class="card-title">Unleash Your Personal Style</h1>
 
@@ -198,7 +193,7 @@
         </div>
 
         <div class="card">
-          <img src="./Img/card1.jpg" class="card-img" alt="">
+          <img src="./Landing/Img/card1.jpg" class="card-img" alt="">
           <div class="card-body">
             <h1 class="card-title">NYC</h1>
             <p class="card-sub-title">New york City</p>
@@ -267,7 +262,7 @@
       <div class="testimonial mySwiper">
         <div class="testi-content swiper-wrapper">
           <div class="slide swiper-slide">
-            <img src="./Img/Feedback_img/img1.jpg" alt="" class="image" />
+            <img src="./Landing/Img/Feedback_img/img1.jpg" alt="" class="image" />
 
             <div class="rating">
               <span class="fa fa-star checked"></span>
@@ -290,7 +285,7 @@
             </div>
           </div>
           <div class="slide swiper-slide">
-            <img src="./Img/Feedback_img/img2.jpg" alt="" class="image" />
+            <img src="./Landing/Img/Feedback_img/img2.jpg" alt="" class="image" />
             <div class="rating">
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
@@ -311,7 +306,7 @@
             </div>
           </div>
           <div class="slide swiper-slide">
-            <img src="./Img/Feedback_img/img3.jpg" alt="" class="image" />
+            <img src="./Landing/Img/Feedback_img/img3.jpg" alt="" class="image" />
             <div class="rating">
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
@@ -363,20 +358,16 @@
       </div>
 
     </footer>
-
     <!-- !footer ends here -->
-
-
   </section>
-
 
   <!-- <script src="./JS/Form.js"></script> -->
 
   <!-- !counting cards js connected -->
-  <script src="./JS/couting.js"></script>
+  <script src="./Landing/JS/couting.js"></script>
 
   <!-- !swiper.js library is added  -->
-  <script src="./JS/swiper-bundle.min.js"></script>
+  <script src="./Landing/JS/swiper-bundle.min.js"></script>
 
   <!-- !iconicons icons pack js is added here -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -404,13 +395,24 @@
 
 
     // !swiper js ends here
+
+
+    let sessionAvlble = <% if(session == null || session.getAttribute("UserId") == null){%> false <%}else{%> true <%}%>
+
+    if(sessionAvlble){
+      document.querySelector('#login').style.display = 'none';
+      document.querySelector('#logout').style.display = 'block';
+    }
+    else{
+      document.querySelector('#login').style.display = 'block';
+    }
   </script>
 
 
 </body>
 <!-- !Swiper JS -->
-<script src="js/swiper-bundle.min.js"></script>
+<script src="./Landing/JS/swiper-bundle.min.js"></script>
 <!-- !JavaScript -->
-<script src="./JS/feedback.js"></script>
+<script src="./Landing/JS/feedback.js"></script>
 
 </html>

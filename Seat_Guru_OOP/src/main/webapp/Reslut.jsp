@@ -53,24 +53,15 @@
 </head>
 
 <body>
+
+<% if (session == null || session.getAttribute("UserId") == null) {
+
+  response.sendRedirect("./login.jsp");
+}
+
+%>
   <!-- !navigation Bar -->
-  <header>
-    <div class="nav-bar">
-      <a href="" class="logo">
-        <ion-icon name="bus-outline" class="logo"></ion-icon>
-        SeatGuru</a>
-      <div class="navigation">
-        <div class="nav-items">
-          <a href="../Landing/Landing.html"> Home</a>
-          <a href="./ContactUs.html"> Contact Us</a>
-          <a href="./about us/aboutUs.html"> About Us</a>
-          <!-- make this button blue ane make it red when hover -->
-          <a href="../Login Register Page/index.html"><button type="button"
-              class="btn btn-dark btnlogin">Login</button></a>
-        </div>
-      </div>
-    </div>
-  </header>
+  <jsp:include page="./NavigationBar.jsp" />
 
 
   <!-- !navigation Bar ended-->
@@ -188,10 +179,8 @@
 
   </main>
 
-  
 
 
-  <!-- !footer starts here -->
 
   <section class="footer-container">
 
@@ -211,8 +200,6 @@
         <p>copyright &copy;2020 Kaweesha Marasinghe. Designed by MLB_14.02_02</p>
       </div>
 
-
-      
     </footer>
 
     <!-- !footer ends here -->
@@ -247,6 +234,17 @@
       pickReturn.style.display = "none";
     }
   });
+
+  let sessionAvlble = <% if(session == null || session.getAttribute("UserId") == null){%> false <%}else{%> true <%}%>
+
+  if(sessionAvlble){
+    document.querySelector('#login').style.display = 'none';
+    document.querySelector('#logout').style.display = 'block';
+  }
+  else{
+    document.querySelector('#login').style.display = 'block';
+    document.querySelector('#logout').style.display = 'none';
+  }
 
 
 

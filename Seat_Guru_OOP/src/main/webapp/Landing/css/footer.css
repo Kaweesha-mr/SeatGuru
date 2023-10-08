@@ -12,10 +12,9 @@ footer{
     background: #032400;
     height: auto;
     width: 1;
-    font-family: "Open Sans";
     padding-top:20px ;
     color: #fff;
-    position: absolute;
+    position: initial;
     bottom: 0;
 }
 
