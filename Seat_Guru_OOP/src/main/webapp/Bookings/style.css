@@ -106,131 +106,130 @@ header .nav-bar {
 
 /* header done */
 
-  .tickets {
-    position: relative;
-    width: 40rem;
-    height: 90vh;
-    border-radius: 3mm;
-    box-sizing: border-box;
-    padding: 10px;
-    font-family: poppins;
-    max-height: 100vh;
-    overflow: auto;
-    background: rgb(243, 243, 243);
-    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
-    border: 2px solid rgba(0, 0, 0, 0.27);
-  }
-  .ticket-selector {
-    background: rgb(243, 243, 243);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    box-sizing: border-box;
-    height: 80%;
-  }
-  .head {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-  .title {
-    font-size: 16px;
-    font-weight: 600;
-  }
-  .seats {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 150px;
-    position: relative;
-  }
-  .status {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .seats::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 220px;
-    height: 7px;
-    background: rgb(141, 198, 255);
-    border-radius: 0 0 3mm 3mm;
-    border-top: 0.3mm solid rgb(180, 180, 180);
-  }
-  .item {
-    font-size: 12px;
-    position: relative;
-  }
-  .item::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: -12px;
-    transform: translate(0, -50%);
-    width: 10px;
-    height: 10px;
-    background: rgb(255, 255, 255);
-    outline: 0.2mm solid rgb(120, 120, 120);
-    border-radius: 0.3mm;
-  }
-  .item:nth-child(2)::before {
-    background: rgb(180, 180, 180);
-    outline: none;
-  }
-  .item:nth-child(3)::before {
-    background: rgb(28, 185, 120);
-    outline: none;
-  }
-  .all-seats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-    margin: 60px 0;
-    margin-top: 20px;
-    position: relative;
-  }
-  .seat {
-    width: 20px;
-    height: 20px;
-    background: white;
-    border-radius: 0.5mm;
-    outline: 0.3mm solid rgb(180, 180, 180);
-    cursor: pointer;
-  }
-  .all-seats input:checked + label {
-    background: rgb(28, 185, 120);
-    outline: none;
-  }
-  .seat.booked {
-    background: rgb(180, 180, 180);
-    outline: none;
-  }
-  input {
-    display: none;
-  }
-  .timings {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-  }
+.tickets {
+  position: relative;
+  width: 40rem;
+  height: 90vh;
+  border-radius: 3mm;
+  box-sizing: border-box;
+  padding: 10px;
+  font-family: poppins;
+  max-height: 100vh;
+  overflow: auto;
+  background: rgb(243, 243, 243);
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(0, 0, 0, 0.27);
+}
+.ticket-selector {
+  background: rgb(243, 243, 243);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 80%;
+}
+.head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.seats {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 150px;
+  position: relative;
+}
+.status {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.seats::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 220px;
+  height: 7px;
+  background: rgb(141, 198, 255);
+  border-radius: 0 0 3mm 3mm;
+  border-top: 0.3mm solid rgb(180, 180, 180);
+}
+.item {
+  font-size: 12px;
+  position: relative;
+}
+.item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  transform: translate(0, -50%);
+  width: 10px;
+  height: 10px;
+  background: rgb(255, 255, 255);
+  outline: 0.2mm solid rgb(120, 120, 120);
+  border-radius: 0.3mm;
+}
+.item:nth-child(2)::before {
+  background: rgb(180, 180, 180);
+  outline: none;
+}
+.item:nth-child(3)::before {
+  background: rgb(28, 185, 120);
+  outline: none;
+}
+.all-seats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  margin: 60px 0;
+  margin-top: 20px;
+  position: relative;
+}
+.seat {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 0.5mm;
+  outline: 0.3mm solid rgb(180, 180, 180);
+
+  cursor: pointer;
+}
+.all-seats input:checked + label {
+  background: rgb(28, 185, 120);
+  outline: none;
+}
+.seat.booked {
+  background: rgb(180, 180, 180);
+  outline: none;
+}
+
+.timings {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
 
 
 
 
-  /* =============right====================== */
+/* =============right====================== */
 
 .card-container{
   display: flex;
@@ -348,6 +347,30 @@ select{
 }
 
 
+#seats{
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  font-family: "poppins";
+  font-weight: 600;
+  color: #000000;
+  background: #f2f2f2;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: large;
+  text-align: center;
+}
+
+#seats:focus{
+  border: 1px solid #013f03;
+  background: #f2f2f2;
+  box-shadow: 0 5px 3px rgba(0,0,0,0.1);
+  color: #000000;
+}
+
 
 
 
@@ -365,7 +388,7 @@ select{
 
 
 footer{
-  
+
   background: #032400;
   height: auto;
   width: 1;
@@ -376,13 +399,13 @@ footer{
 
 .footer-content{
 
-display: flex;
+  display: flex;
 
-align-items: center;
+  align-items: center;
 
-flex-direction: column;
+  flex-direction: column;
 
-text-align: center;
+  text-align: center;
 }
 
 .footer-content h3 {
@@ -395,9 +418,9 @@ text-align: center;
 
 .footer-content p{
 
-max-width: 500px;
+  max-width: 500px;
 
-margin: 10px auto;
+  margin: 10px auto;
 }
 
 .socials{

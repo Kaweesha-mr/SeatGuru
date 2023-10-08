@@ -131,7 +131,6 @@
   try {
     ArrayList<BusRoute> originalArrayList = (ArrayList<BusRoute>) request.getAttribute("busRoutes");
 
-//        create connection
     ConnectDB connectDB = new ConnectDB();
     Class.forName("com.mysql.cj.jdbc.Driver");
     Connection connection = connectDB.getConnection();
@@ -147,6 +146,7 @@
       String Reg_num = null;
       Dep = null;
       Arr = null;
+
       while (rs.next()) {
         busName = rs.getString("Name");
         busType = rs.getString("Type");
@@ -154,12 +154,6 @@
         Dep = rs.getString("Dep");
         Arr = rs.getString("Arr");
 
-
-        System.out.println(busName);
-        System.out.println(busType);
-        System.out.println(Reg_num);
-        System.out.println(Dep);
-        System.out.println(Arr);
       }
 
 %>
@@ -170,7 +164,7 @@
                 <td><a href="#"><%=Reg_num%></a> </td>
                 <td><a href="#"><%=Dep%></a> </td>
                 <td><A href="#"><%=Arr%></A> </td>
-                <td><A href="#"><button href="#">Select</button></A> </td>
+                <td><A href="BookTicket?id=<%=route.getId()%>"> <button>Select</button></A></td>
 </tr>
 
 
