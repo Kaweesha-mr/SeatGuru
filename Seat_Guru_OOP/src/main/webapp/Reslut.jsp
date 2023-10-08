@@ -147,6 +147,8 @@
       Dep = null;
       Arr = null;
 
+
+
       while (rs.next()) {
         busName = rs.getString("Name");
         busType = rs.getString("Type");
