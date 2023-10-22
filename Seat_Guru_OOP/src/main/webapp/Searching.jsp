@@ -45,8 +45,19 @@
 
 <body>
 
-<jsp:include page="./NavigationBar.jsp" />
-
+<header>
+    <div class="nav-bar">
+        <a href="" class="logo">Fashion Treak Garments</a>
+        <div class="navigation">
+            <div class="nav-items">
+                <a href="./Landing.jsp"> Home</a>
+                <a href="./Searching.jsp"> Search for a bus</a>
+                <a href="./UserProfile.jsp"> User Profile</a>
+                <a id="login" href="./login.jsp"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
+            </div>
+        </div>
+    </div>
+</header>
 
 <main>
 
@@ -252,27 +263,15 @@
 
 
 
-    let checkbox = document.getElementById('toggle');
-    let pickReturn = document.getElementById('pickReturn');
-
-    checkbox.addEventListener('change', function () {
-        if (this.checked) {
-            pickReturn.style.display = "block";
-        } else {
-            pickReturn.style.display = "none";
-        }
-    });
 
 
     let sessionAvlble = <% if(session == null || session.getAttribute("UserId") == null){%> false <%}else{%> true <%}%>
 
     if(sessionAvlble){
         document.querySelector('#login').style.display = 'none';
-        document.querySelector('#logout').style.display = 'block';
     }
     else{
         document.querySelector('#login').style.display = 'block';
-        document.querySelector('#logout').style.display = 'none';
     }
 
 

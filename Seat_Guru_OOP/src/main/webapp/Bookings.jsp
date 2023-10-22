@@ -38,11 +38,11 @@
         <%
           ConnectDB connectDB = new ConnectDB();
 
-
-
           String id = request.getCookies()[0].getValue();
 
           String TicketPrice = null;
+
+
           try {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -56,6 +56,8 @@
 
             while (resultSet.next()) {
               TicketPrice = resultSet.getString("TicketP");
+              System.out.println(TicketPrice);
+
             }
 
           }
@@ -77,6 +79,7 @@
         <label>Amount</label>
         <input type="text" name="amount" id="seats" class="value" value="0.00" readonly />
         <input type="text" name="id" style="display: none" value="<%=id%>">
+        <input type="text" name="username" value="<%=session.getAttribute("UserId")%>" style="display:none;">
         <button type="submit" >Book Now</button>
         <button type="reset">Reset</button>
       </form>

@@ -21,16 +21,23 @@ public class bookingUpdate extends HttpServlet {
         String id = req.getParameter("id");
         String seat = req.getParameter("seats");
         String price = req.getParameter("amount");
+        String username = req.getParameter("username");
+
+
+        System.out.println("id: " + id);
+        System.out.println("seat: " + seat);
+        System.out.println("price: " + price);
+        System.out.println("username: " + username);
 
         ConnectDB connectDB = new ConnectDB();
-
-
 
         try {
 
             System.out.println("Before function executed");
-            connectDB.updateBooking(id, seat);
+            connectDB.updateBooking(id, seat, Integer.parseInt(username));
             resp.sendRedirect("login.jsp");
+
+            System.out.println("after function executed");
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);

@@ -54,6 +54,7 @@
     assert session != null;
     int NIC = (int) session.getAttribute("UserId");
     System.out.println(NIC);
+
     PreparedStatement ps = connection.prepareStatement("select * from bus_ticket_reservation_system.user where NIC =?");
     ps.setInt(1, NIC);
 

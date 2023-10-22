@@ -7,8 +7,6 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.seat_guru_oop.BusRoute" %>
-<%--add jstl--%>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,12 +52,14 @@
 
 <body>
 
+
 <% if (session == null || session.getAttribute("UserId") == null) {
 
   response.sendRedirect("./login.jsp");
 }
 
 %>
+
   <!-- !navigation Bar -->
   <jsp:include page="./NavigationBar.jsp" />
 
@@ -120,11 +120,17 @@
 <%
 
   try {
+
     ArrayList<BusRoute> originalArrayList = (ArrayList<BusRoute>) request.getAttribute("busRoutes");
 
     ConnectDB connectDB = new ConnectDB();
     Class.forName("com.mysql.cj.jdbc.Driver");
     Connection connection = connectDB.getConnection();
+
+
+    int username = (int) session.getAttribute("UserId");
+    System.out.println(username);
+
 
     for (BusRoute route : originalArrayList) {
 
@@ -157,7 +163,7 @@
                 <td><a href="#"><%=Reg_num%></a> </td>
                 <td><a href="#"><%=Dep%></a> </td>
                 <td><A href="#"><%=Arr%></A> </td>
-                <td><A href="BookTicket?id=<%=route.getId()%>"> <button>Select</button></A></td>
+                <td><A href="BookTicket?id=<%=route.getId()%>"><button>Select</button></A></td>
 </tr>
 
               <%
