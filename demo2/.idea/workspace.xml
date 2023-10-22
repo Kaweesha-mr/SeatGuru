@@ -10,20 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="013fca03-f6b3-433f-b747-57a8396b1d37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seat_Guru_OOP/src/main/java/com/example/seat_guru_oop/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/src/main/java/com/example/seat_guru_oop/ConnectDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Seat_Guru_OOP/src/main/java/com/example/seat_guru_oop/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/src/main/java/com/example/seat_guru_oop/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seat_Guru_OOP/src/main/java/com/example/seat_guru_oop/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Seat_Guru_OOP/src/main/java/com/example/seat_guru_oop/login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +119,7 @@
       <updated>1696508408652</updated>
       <workItem from="1696508409727" duration="2612000" />
       <workItem from="1696530583382" duration="1190000" />
+      <workItem from="1696564394682" duration="250000" />
     </task>
     <servers />
   </component>
