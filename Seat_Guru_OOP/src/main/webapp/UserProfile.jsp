@@ -96,7 +96,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="Home.jsp">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -152,11 +152,6 @@
         <img src="UserDashbord/assets/imgs/customer01.jpg" alt="">
       </div>
     </div>
-
-
-    <!-- !create user profile from here -->
-
-
     <div class="card-body">
       <form class="main-form" action="update-servlet" method="get">
         <div class="buttons_edit_delete" id="btnSet1">

@@ -1,3 +1,8 @@
+<%@ page import="com.example.seat_guru_oop.ConnectDB" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +19,49 @@
 
 </head>
 
+<% if (session == null || session.getAttribute("UserId") == null) {
+
+    response.sendRedirect("login.jsp");
+}
+
+%>
+
 <body>
+
+
+<%--<%--%>
+<%--    try {--%>
+
+<%--        ConnectDB connectDB = new ConnectDB();--%>
+<%--        Class.forName("com.mysql.cj.jdbc.Driver");--%>
+<%--        Connection connection = connectDB.getConnection();--%>
+
+<%--        assert session != null;--%>
+<%--        int NIC = (int) session.getAttribute("UserId");--%>
+<%--        System.out.println(NIC);--%>
+
+<%--        PreparedStatement ps = connection.prepareStatement("select * from bus_ticket_reservation_system.user where NIC =?");--%>
+<%--        ps.setInt(1, NIC);--%>
+
+<%--        ResultSet rs = ps.executeQuery();--%>
+
+<%--        if (!rs.next()) {--%>
+
+<%--            System.out.println("ResultSet in empty in Java");--%>
+
+<%--        } else {--%>
+<%--            username = rs.getString("NIC");--%>
+<%--            email = rs.getString("Email");--%>
+<%--            firstName = rs.getString("FName");--%>
+
+<%--        }--%>
+
+
+
+<%--    } catch (SQLException | ClassNotFoundException e) {--%>
+<%--        System.out.println(e);--%>
+<%--    }--%>
+<%--%>--%>
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
@@ -37,7 +84,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../Admin Dashbord - Employee/UserProfile.html">
+                    <a href="UserProfile.jsp">
                         <span class="icon">
                             <!-- add user icon -->
                             <ion-icon name="person-add-outline"></ion-icon>
@@ -133,69 +180,48 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
+                                <td>Bus_Id</td>
+                                <td>Booked Date</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Kaweesha Marasinghe</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
+                        <%
 
-                            <tr>
-                                <td>Yashodha Fernando</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
+                            try {
+                                ConnectDB connectDB = new ConnectDB();
+                                Class.forName("com.mysql.cj.jdbc.Driver");
+                                Connection connection = connectDB.getConnection();
 
-                            <tr>
-                                <td>Kamal Samarakoon</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
+                                    PreparedStatement ps = connection.prepareStatement("SELECT * FROM bus_ticket_reservation_system.booked where booked.UserID = ?;");
+                                    ps.setInt(1, (Integer) session.getAttribute("UserId"));
+                                    ResultSet rs = ps.executeQuery();
 
-                            <tr>
-                                <td>Mr.pendan</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+                                    String BusId = null;
+                                    String Date_Booked = null;
 
-                            <tr>
-                                <td>Bodime Uncle</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
 
-                            <tr>
-                                <td>Mark Zuckerbrg</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
 
-                            <tr>
-                                <td>Steve Jobs</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
+                                    while (rs.next()) {
+                                        BusId = rs.getString("BusID");
+                                        Date_Booked = rs.getString("Date");
 
-                            <tr>
-                                <td>my3</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+
+                        %>
+
+                        <tr>
+                            <td><a href="#"><%=BusId%></a> </td>
+                            <td><a href="#"> <%=Date_Booked%></a></td>
+                        </tr>
+
+                        <%
+                                }
+
+                            } catch (Exception e) {
+                                System.out.println(e);
+                            }
+
+                        %>
                         </tbody>
                     </table>
                 </div>
