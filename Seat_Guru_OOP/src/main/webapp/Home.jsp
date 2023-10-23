@@ -174,7 +174,7 @@
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Recent Reservation</h2>
-                        <a href="#" class="btn">View All</a>
+                        <a href="./delete%20reservations.jsp" class="btn">View All</a>
                     </div>
 
                     <table>

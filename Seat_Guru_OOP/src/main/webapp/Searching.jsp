@@ -92,7 +92,7 @@
 
 
         <label for="date">Date</label>
-        <input type="date" name="date" id="">
+        <input type="date" name="date" id="date">
 
         <label for="passanger">No of Passanger</label>
         <input type="number" name="passanger" id="" min="1" max="10" >
@@ -275,6 +275,8 @@
     }
 
 
+    const date = document.getElementById('date');
+
 
 </script>
 
@@ -283,5 +285,8 @@
 <script src="js/swiper-bundle.min.js"></script>
 <!-- !JavaScript -->
 <script src="Landing/JS/feedback.js"></script>
+
+
+
 
 </html>

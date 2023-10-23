@@ -134,6 +134,8 @@
 
                                     BusId = rs.getString("BusID");
                                     Date_Booked = rs.getString("Date");
+                                    ReservationID = rs.getString("Reservation_ID");
+
 
 
 
@@ -143,6 +145,7 @@
                             <td><a href="#"> <%=ReservationID%></a></td>
                             <td><a href="#"><%=BusId%></a> </td>
                             <td><a href="#"> <%=Date_Booked%></a></td>
+                            <td><a href="deletersv-servlet?ReservationID=<%=ReservationID%>">Delete</a></td>
                         </tr>
 
                         <%

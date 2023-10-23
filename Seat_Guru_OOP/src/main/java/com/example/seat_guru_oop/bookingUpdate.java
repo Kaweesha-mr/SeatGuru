@@ -35,7 +35,7 @@ public class bookingUpdate extends HttpServlet {
 
             System.out.println("Before function executed");
             connectDB.updateBooking(id, seat, Integer.parseInt(username));
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect("Searching.jsp");
 
             System.out.println("after function executed");
 

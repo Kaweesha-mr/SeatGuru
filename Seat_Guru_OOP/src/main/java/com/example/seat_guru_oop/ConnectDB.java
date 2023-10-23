@@ -14,7 +14,9 @@ public class ConnectDB {
     private String dbuname = "root";
     private String dbpassword = "ksmr123";
 
-    public Connection getConnection() {
+
+
+    public  Connection getConnection() {
         Connection con = null;
         try {
             con = DriverManager.getConnection(dburl, dbuname, dbpassword);
@@ -53,6 +55,8 @@ public class ConnectDB {
         }
 
     }
+
+
 
 
     public int login(int nic, String password) throws ClassNotFoundException, SQLException {
@@ -175,6 +179,9 @@ public class ConnectDB {
         return busRoutes;
     }
 
+
+
+
     public void updateBooking(String id, String seat,int  username) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = getConnection();
@@ -204,7 +211,37 @@ public class ConnectDB {
             throw new RuntimeException(e);
         }
     }
+
+    public void deleteReservation(int i) throws ClassNotFoundException {
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = getConnection();
+
+        try {
+
+            PreparedStatement ps = connection.prepareStatement("DELETE  FROM booked WHERE Reservation_ID = ?;");
+            ps.setInt(1, i);
+
+            int rs = ps.executeUpdate();
+
+            if (rs == 1) {
+                System.out.println("Success");
+            } else {
+                System.out.println("unSuccess");
+            }
+        } catch (SQLException e) {
+
+            System.out.println(e);
+        }
+
+
+    }
 }
+
+
+
+
+
 
 
 

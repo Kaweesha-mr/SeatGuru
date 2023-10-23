@@ -400,3 +400,12 @@ form.sign-in-form {
   }
 
 }
+
+
+.valid{
+  border: 1px solid #14532d;
+}
+
+.invalid{
+    border: 1px solid red;
+}
